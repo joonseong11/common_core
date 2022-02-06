@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_body.c                                          :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/06 16:57:34 by jujeon            #+#    #+#             */
-/*   Updated: 2022/02/06 16:57:36 by jujeon           ###   ########.fr       */
+/*   Created: 2021/12/15 20:20:53 by jujeon            #+#    #+#             */
+/*   Updated: 2021/12/15 20:26:45 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
- 
-int	ft_body(const char *format, va_list ap);
-{
+#include "libft.h"
 
-	return ();
+void	ft_putstr_fd(char *s, int fd)
+{
+	size_t	i;
+
+	i = 0;
+	if (s == NULL)
+		return ;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }

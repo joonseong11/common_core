@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_body.c                                          :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/06 16:57:34 by jujeon            #+#    #+#             */
-/*   Updated: 2022/02/06 16:57:36 by jujeon           ###   ########.fr       */
+/*   Created: 2022/02/06 19:48:56 by jujeon            #+#    #+#             */
+/*   Updated: 2022/02/06 19:48:57 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
- 
-int	ft_body(const char *format, va_list ap);
-{
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <unistd.h>
+# include <stdarg.h>
 
-	return ();
-}
+int		ft_printf(const char *format, ...);
+int		ft_body(const char *format, va_list ap);
+void	ft_parse(char c, va_list ap);
+void	ft_printf_char(char c);
+void	ft_putstr_fd(char *s, int fd);
+
+#endif
