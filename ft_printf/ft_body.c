@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_body.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/23 12:29:07 by jujeon            #+#    #+#             */
-/*   Updated: 2022/01/23 12:29:38 by jujeon           ###   ########.fr       */
+/*   Created: 2022/02/06 16:57:34 by jujeon            #+#    #+#             */
+/*   Updated: 2022/02/06 16:57:36 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdarg.h>
-
-int	ft_printf(const char *format, ...)
+ 
+int	ft_body(const char *format, va_list ap);
 {
-	int		ret;
-	va_list	ap;
 
-	va_start(ap, format);
-	ret = ft_body(format, ap);
-	va_end(ap);
-	return (ret);
 }
