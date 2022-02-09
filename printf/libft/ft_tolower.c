@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_char.c                                   :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/06 19:47:01 by jujeon            #+#    #+#             */
-/*   Updated: 2022/02/06 19:47:03 by jujeon           ###   ########.fr       */
+/*   Created: 2021/11/27 22:34:42 by jujeon            #+#    #+#             */
+/*   Updated: 2021/11/27 22:35:06 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-void	ft_printf_char(char c)
+int	ft_tolower(int c)
 {
-
-	ft_putstr_fd( ,)
+	if (65 <= c && c <= 90)
+	{
+		c += 32;
+		return (c);
+	}
+	else
+		return (c);
 }
-

@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/06 19:48:56 by jujeon            #+#    #+#             */
-/*   Updated: 2022/02/06 19:48:57 by jujeon           ###   ########.fr       */
+/*   Created: 2021/12/05 18:08:45 by jujeon            #+#    #+#             */
+/*   Updated: 2021/12/05 19:24:33 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdarg.h>
-# include "./libft/libft.h"
+#include "libft.h"
 
-/*
-*****************************	MAIN FUNCTION	*******************************
- */
+char	*ft_strrchr(const char *s, int c)
+{
+	int		i;
+	char	*str;
 
-int		ft_printf(const char *format, ...);
-int		ft_body(const char *format, va_list ap);
-void	ft_parse(char c, va_list ap);
-void	ft_putnbr_u(unsigned int u, int fd);
-void	ft_putnbr_base(int nbr, char *base);
-
-#endif
+	i = 0;
+	str = (char *)s;
+	while (*str)
+	{
+		str++;
+		i++;
+	}	
+	while (i)
+	{
+		if (*str == (char)c)
+			return (str);
+		str--;
+		i--;
+	}
+	if (*str == (char)c)
+		return (str);
+	return (NULL);
+}

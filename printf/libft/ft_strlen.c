@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/06 19:48:56 by jujeon            #+#    #+#             */
-/*   Updated: 2022/02/06 19:48:57 by jujeon           ###   ########.fr       */
+/*   Created: 2021/11/27 14:36:29 by jujeon            #+#    #+#             */
+/*   Updated: 2021/12/08 19:54:31 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdarg.h>
-# include "./libft/libft.h"
+#include "libft.h"
 
-/*
-*****************************	MAIN FUNCTION	*******************************
- */
+size_t	ft_strlen(const char *str)
+{
+	int	i;
 
-int		ft_printf(const char *format, ...);
-int		ft_body(const char *format, va_list ap);
-void	ft_parse(char c, va_list ap);
-void	ft_putnbr_u(unsigned int u, int fd);
-void	ft_putnbr_base(int nbr, char *base);
-
-#endif
+	i = 0;
+	while (str[i] != 0)
+		i++;
+	return (i);
+}
