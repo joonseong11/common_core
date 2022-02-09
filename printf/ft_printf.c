@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 12:29:07 by jujeon            #+#    #+#             */
-/*   Updated: 2022/01/23 12:29:38 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/02/08 23:51:59 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_parse(char c, va_list ap)
 	if (c == 'c')
 		ft_printf_char(va_arg(ap, int));
 	else if (c == 's')
-		ft_printf_char(va_arg(ap, int));
+		ft_printf_str(va_arg(ap, int));
 	else if (c == 'p')
 		ft_printf_char(va_arg(ap, int));
 	else if (c == 'd')
