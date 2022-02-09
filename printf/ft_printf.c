@@ -6,30 +6,40 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 12:29:07 by jujeon            #+#    #+#             */
-/*   Updated: 2022/02/08 23:51:59 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/02/10 00:20:45 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+void	ft_putnbr_u(unsigned int u, int fd)
+{
+	long long	tmp;
+
+	tmp = u;
+	if (tmp > 9)
+		ft_putnbr_u(tmp / 10, fd);
+	ft_putchar_fd(tmp % 10 + '0', fd);
+}
+
 void	ft_parse(char c, va_list ap)
 {
 	if (c == 'c')
-		ft_printf_char(va_arg(ap, int));
+		ft_putchar_fd(va_arg(ap, int), 1);
 	else if (c == 's')
-		ft_printf_str(va_arg(ap, int));
+		ft_putstr_fd(va_arg(ap, char *), 1);
 	else if (c == 'p')
-		ft_printf_char(va_arg(ap, int));
-	else if (c == 'd')
-		ft_printf_char(va_arg(ap, int));
-	else if (c == 'i')
-		ft_printf_char(va_arg(ap, int));
+		ft_putchar_fd(va_arg(ap, int), 1);
+	else if (c == 'd' || c == 'i')
+		ft_putnbr_fd(va_arg(ap, int), 1);
 	else if (c == 'u')
-		ft_printf_char(va_arg(ap, int));
+		ft_putnbr_u(va_arg(ap, int), 1);
 	else if (c == 'x')
-		ft_printf_char(va_arg(ap, int));
+		ft_putnbr_base(va_arg(ap, int), "0123456789abcdef");
 	else if (c == 'X')
-		ft_printf_char(va_arg(ap, int));
+		ft_putnbr_base(va_arg(ap, int), "0123456789ABCDEF");
+	else
+		return ;
 }
 
 int	ft_body(const char *format, va_list ap)
@@ -42,9 +52,10 @@ int	ft_body(const char *format, va_list ap)
 	while (format[i])
 	{
 		if (format[i] == '%')
-			ft_parse(format[i + 1], ap);
+			ft_parse(format[i++ + 1], ap);
 		else
 			count += write(1, &format[i], 1);
+		++i;
 	}
 	return (count);
 }
@@ -58,4 +69,16 @@ int	ft_printf(const char *format, ...)
 	count = ft_body(format, ap);
 	va_end(ap);
 	return (count);
+}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	int	a;
+
+	a = 1003;
+	printf("%z \n", 123);
+	printf("%d", printf("%z \n", 0xf1));
+	//ft_printf("%X", 0xF1);
 }

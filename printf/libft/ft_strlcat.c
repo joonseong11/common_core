@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/06 19:48:56 by jujeon            #+#    #+#             */
-/*   Updated: 2022/02/06 19:48:57 by jujeon           ###   ########.fr       */
+/*   Created: 2021/12/02 17:16:29 by jujeon            #+#    #+#             */
+/*   Updated: 2021/12/15 17:09:25 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdarg.h>
-# include "./libft/libft.h"
+#include "libft.h"
 
-/*
-*****************************	MAIN FUNCTION	*******************************
- */
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
 
-int		ft_printf(const char *format, ...);
-int		ft_body(const char *format, va_list ap);
-void	ft_parse(char c, va_list ap);
-void	ft_putnbr_u(unsigned int u, int fd);
-void	ft_putnbr_base(int nbr, char *base);
-
-#endif
+	i = 0;
+	j = 0;
+	if (ft_strlen(dst) > size)
+		return (ft_strlen(src) + size);
+	while (*dst != 0)
+	{
+		i++;
+		dst++;
+	}
+	while ((i + 1 < size) && src[j] != 0)
+	{
+		*dst++ = src[j++];
+		i++;
+	}
+	*dst = 0;
+	while (src[j] != 0)
+	{
+		i++;
+		j++;
+	}
+	return (i);
+}
