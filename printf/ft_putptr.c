@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
-
+#include "ft_printf.h"
+/*
 int	base_check(char *base)
 {
 	int	i;
@@ -52,12 +53,13 @@ void	base_print(long num, char *base)
 	else
 		write(1, &base[num], 1);
 }
-
-void	ft_putnbr_base(int nbr, char *base)
+*/
+void	ft_putptr(unsigned long long nbr, char *base)
 {
-	long	num;
+	unsigned long long	num;
 
 	num = 0;
+	ft_putstr_fd("0x", 1);
 	if (base_check(base) == 1)
 	{
 		if (nbr < 0)

@@ -29,7 +29,7 @@ void	ft_parse(char c, va_list ap)
 	else if (c == 's')
 		ft_putstr_fd(va_arg(ap, char *), 1);
 	else if (c == 'p')
-		ft_putchar_fd(va_arg(ap, int), 1);
+		ft_putptr(va_arg(ap, unsigned long long), "0123456789abcdef");
 	else if (c == 'd' || c == 'i')
 		ft_putnbr_fd(va_arg(ap, int), 1);
 	else if (c == 'u')
@@ -77,8 +77,7 @@ int	main(void)
 {
 	int	a;
 
-	a = 1003;
-	printf("%z \n", 123);
-	printf("%d", printf("%z \n", 0xf1));
-	//ft_printf("%X", 0xF1);
+	a = 10;
+	printf("%p \n", &a);
+	ft_printf("%p", &a);
 }
