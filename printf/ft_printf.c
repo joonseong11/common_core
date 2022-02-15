@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 12:29:07 by jujeon            #+#    #+#             */
-/*   Updated: 2022/02/10 00:20:45 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/02/14 14:04:55 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void	ft_putnbr_u(unsigned int u, int fd)
 void	ft_parse(char c, va_list ap)
 {
 	if (c == 'c')
-		ft_putchar_fd(va_arg(ap, int), 1);
+		ft_putchar_fd(va_arg(ap, char), 1);
 	else if (c == 's')
 		ft_putstr_fd(va_arg(ap, char *), 1);
-	else if (c == 'p')
-		ft_putchar_fd(va_arg(ap, int), 1);
+	//else if (c == 'p')
+	//	ft_putpointer(va_arg(ap, void *));
 	else if (c == 'd' || c == 'i')
 		ft_putnbr_fd(va_arg(ap, int), 1);
 	else if (c == 'u')
@@ -64,7 +64,7 @@ int	ft_printf(const char *format, ...)
 {
 	int		count;
 	va_list	ap;
-
+	
 	va_start(ap, format);
 	count = ft_body(format, ap);
 	va_end(ap);
@@ -76,9 +76,13 @@ int	ft_printf(const char *format, ...)
 int	main(void)
 {
 	int	a;
+	int b;
+	char c;
 
 	a = 1003;
-	printf("%z \n", 123);
-	printf("%d", printf("%z \n", 0xf1));
+	b = 777;
+	c = 'z';
+	//printf("%p\n", &a);
+	ft_printf("%c", c);
 	//ft_printf("%X", 0xF1);
 }

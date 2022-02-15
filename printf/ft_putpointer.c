@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 20:20:53 by jujeon            #+#    #+#             */
-/*   Updated: 2022/02/11 17:37:19 by jujeon           ###   ########seoul.kr  */
+/*   Created: 2022/02/11 01:18:48 by jujeon            #+#    #+#             */
+/*   Updated: 2022/02/11 18:09:50 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
+#include "printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putpointer(unsigned long long p)
 {
-	size_t	i;
-
-	i = 0;
-	if (s == NULL)
-		return ;
-	while (s[i])
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+	ft_putchar_fd("0x");
+	ft_putnbr_base(p, "0123456789abcdef");
 }
