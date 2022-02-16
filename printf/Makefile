@@ -15,18 +15,17 @@ SRCS = ft_printf.c \
 		ft_putnbr_base.c \
 		ft_putptr.c
 OBJS = $(SRCS:.c=.o)
-CC = gcc
 FLAGS = -c -Wall -Wextra -Werror
-AR_FLAGS = rcs
+AR_FLAGS = -rcs
 INCLUDE = -I./
 
 %.o : %.c
-	$(CC) $(FLAGS) $(INCLUDE) $(SRCS)
+	gcc $(FLAGS) $(INCLUDE) $(SRCS)
 
 $(NAME) : $(OBJS)
 	make bonus -C ./libft
 	cp libft/libft.a $(NAME)
-	%(CC) $(FLAGS) $(INCLUDE) $(SRCS)
+	gcc $(FLAGS) $(INCLUDE) $(SRCS)
 	ar $(AR_FLAGS) $(NAME) $(OBJS)
 
 all : $(NAME)

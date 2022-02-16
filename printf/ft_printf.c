@@ -70,14 +70,14 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	return (count);
 }
-
-#include <stdio.h>
-
-int	main(void)
-{
-	int	a;
-
-	a = 10;
-	printf("%p \n", &a);
-	ft_printf("%p", &a);
-}
+//
+//#include <stdio.h>
+//
+//int	main(void)
+//{
+//	int	a;
+//
+//	a = 10;
+//	printf("%p \n", &a);
+//	ft_printf("%p", &a);
+//}
