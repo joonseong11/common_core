@@ -22,24 +22,29 @@ void	ft_putnbr_u(unsigned int u, int fd)
     ft_putchar_fd(tmp % 10 + '0', fd);
 }
 
-void	ft_parse(char c, va_list ap)
+int     ft_parse(char c, va_list ap)
 {
+    const char *l_hexa = "0123456789abcdef";
+    const char *u_hexa = "0123456789ABCDEF";
+    int         count;
+
+    count = 0;
     if (c == 'c')
         ft_putchar_fd(va_arg(ap, int), 1);
     else if (c == 's')
         ft_putstr_fd(va_arg(ap, char *), 1);
     else if (c == 'p')
-        ft_putptr(va_arg(ap, unsigned long long), "0123456789abcdef");
+        ft_putptr(va_arg(ap, unsigned long long), l_hexa);
     else if (c == 'd' || c == 'i')
         ft_putnbr_fd(va_arg(ap, int), 1);
     else if (c == 'u')
         ft_putnbr_u(va_arg(ap, int), 1);
     else if (c == 'x')
-        ft_putnbr_base(va_arg(ap, int), "0123456789abcdef");
+        ft_putnbr_base(va_arg(ap, int), l_hexa);
     else if (c == 'X')
-        ft_putnbr_base(va_arg(ap, int), "0123456789ABCDEF");
+        ft_putnbr_base(va_arg(ap, int), u_hexa);
     else
-        return ;
+        return (0);
 }
 
 int	ft_body(const char *format, va_list ap)
@@ -52,7 +57,7 @@ int	ft_body(const char *format, va_list ap)
     while (format[i])
     {
         if (format[i] == '%')
-            ft_parse(format[i++ + 1], ap);
+            count += ft_parse(format[i++ + 1], ap);
         else
             count += write(1, &format[i], 1);
         ++i;
