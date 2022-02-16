@@ -25,5 +25,8 @@ int		ft_body(const char *format, va_list ap);
 void	ft_parse(char c, va_list ap);
 void	ft_putnbr_u(unsigned int u, int fd);
 void	ft_putnbr_base(int nbr, char *base);
+void	base_print(long num, char *base);
+int		base_check(char *base);
+void	ft_putptr(unsigned long long nbr, char *base);
 
 #endif
