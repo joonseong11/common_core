@@ -18,26 +18,16 @@ cd ..
 echo -e "\033[32;1m"ft_printf_tester"\033[m"
 read $a
 git clone https://github.com/paulo-santana/ft_printf_tester.git
-<<<<<<< HEAD
 make bonus
 cd ft_printf_tester/
 cp ../*.a .
 sh test
-=======
-cd ft_printf_tester/
-cp ../*.a .
-sh test m
->>>>>>> 256cf8b7939a06f3227714cd6f8838953f2e1caf
 cd ..
 echo -e "\033[32;1m"printfTester"\033[m"
 read $a
 git clone https://github.com/Tripouille/printfTester.git
 cd printfTester/
-<<<<<<< HEAD
 make a
-=======
-make m
->>>>>>> 256cf8b7939a06f3227714cd6f8838953f2e1caf
 cd ..
 make fclean
 rm -rf printf42_mandatorytester/ ft_printf_tester/ printfTester/
