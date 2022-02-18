@@ -10,17 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-void	ft_putnbr_u(unsigned int u, int fd)
-{
-    long long	tmp;
-
-    tmp = u;
-    if (tmp > 9)
-        ft_putnbr_u(tmp / 10, fd);
-    ft_putchar_fd(tmp % 10 + '0', fd);
-}
+#include "../include/ft_printf.h"
 
 int     ft_parse(char c, va_list ap)
 {
@@ -30,11 +20,11 @@ int     ft_parse(char c, va_list ap)
 
     count = 0;
     if (c == 'c')
-        ft_putchar_fd(va_arg(ap, int), 1);
+        return = ft_printf_char(va_arg(ap, int), 1);
     else if (c == 's')
-        ft_putstr_fd(va_arg(ap, char *), 1);
+        return = ft_printf_str(va_arg(ap, char *), 1);
     else if (c == 'p')
-        ft_putptr(va_arg(ap, unsigned long long), l_hexa);
+        ft_printf_ptr(va_arg(ap, unsigned long long), l_hexa);
     else if (c == 'd' || c == 'i')
         ft_putnbr_fd(va_arg(ap, int), 1);
     else if (c == 'u')
@@ -75,14 +65,14 @@ int	ft_printf(const char *format, ...)
     va_end(ap);
     return (count);
 }
-//
-//#include <stdio.h>
-//
-//int	main(void)
-//{
-//	int	a;
-//
-//	a = 10;
-//	printf("%p \n", &a);
-//	ft_printf("%p", &a);
-//}
+
+#include <stdio.h>
+
+int	main(void)
+{
+	int	a;
+
+	a = 10;
+	printf("return of printf : %d\n", printf("%p \n", &a));
+    printf("return of printf : %d\n", ft_printf("%p", &a));
+}

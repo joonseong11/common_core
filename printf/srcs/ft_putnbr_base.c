@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
-#include "ft_printf.h"
-/*
-int	base_check(char *base)
+#include "../libft/libft.h"
+
+int	base_check(const char *base)
 {
 	int	i;
 	int	j;
@@ -38,7 +37,7 @@ int	base_check(char *base)
 	return (1);
 }
 
-void	base_print(long num, char *base)
+void	base_print(long num, const char *base)
 {
 	int	len;
 
@@ -53,13 +52,12 @@ void	base_print(long num, char *base)
 	else
 		write(1, &base[num], 1);
 }
-*/
-void	ft_putptr(unsigned long long nbr, char *base)
+
+int 	ft_putnbr_base(int nbr, const char *base)
 {
-	unsigned long long	num;
+	long	num;
 
 	num = 0;
-	ft_putstr_fd("0x", 1);
 	if (base_check(base) == 1)
 	{
 		if (nbr < 0)

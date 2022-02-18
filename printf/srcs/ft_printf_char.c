@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 20:20:53 by jujeon            #+#    #+#             */
-/*   Updated: 2021/12/15 20:26:45 by jujeon           ###   ########seoul.kr  */
+/*   Created: 2021/12/14 10:41:20 by jujeon            #+#    #+#             */
+/*   Updated: 2022/02/10 00:22:00 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putstr_fd(char *s)
+int ft_printf_char(char c)
 {
-	size_t	i;
-
-	i = 0;
-	if (s == NULL)
-		return ;
-	while (s[i])
-	{
-		ft_putchar_fd(s[i]);
-		i++;
-	}
+    return = write(fd, &c, 1);
 }

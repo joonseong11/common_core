@@ -10,16 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putstr_fd(char *s)
-{
-	size_t	i;
+#include "libft.h"
 
-	i = 0;
-	if (s == NULL)
-		return ;
-	while (s[i])
-	{
-		ft_putchar_fd(s[i]);
-		i++;
-	}
+int	ft_printf_str(char *s, int fd)
+{
+    size_t	i;
+
+    i = 0;
+    while (s[i])
+    {
+        ft_putchar_fd(s[i], fd);
+        i++;
+    }
+    return (i);
 }
