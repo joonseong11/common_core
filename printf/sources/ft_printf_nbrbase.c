@@ -67,14 +67,7 @@ int	ft_printf_nbrbase(unsigned int nbr, const char *base)
 	num = 0;
 	if (base_check(base) == 1)
 	{
-//		if (nbr < 0)
-//		{
-//			num = nbr * (-1);
-//			write(1, "-", 1);
-//			(*p)++;
-//		}
-//		else
-			num = nbr;
+		num = nbr;
 		base_print(num, base, p);
 	}
 	return (*p);

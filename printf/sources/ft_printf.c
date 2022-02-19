@@ -65,14 +65,3 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	return (count);
 }
-//
-//#include <stdio.h>
-//
-//int	main(void)
-//{
-//	int	a;
-//
-//	a = 10;
-//	printf("^ : printf's output, return of printf : %d\n", printf("%p \n", &a));
-//	printf(" : ft_printf's output, return of ft_printf : %d\n", ft_printf("%p", &a));
-//}

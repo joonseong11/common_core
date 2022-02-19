@@ -26,7 +26,6 @@ int		ft_printf_ptr(unsigned long long nbr, const char *base);
 int     ft_printf_nbr(int n);
 int     ft_printf_unbr(unsigned int n);
 int		ft_printf_nbrbase(unsigned int nbr, const char *base);
-void	base_print(long long num, const char *base, int *p);
 int	    base_check(const char *base);
 
 #endif
