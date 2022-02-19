@@ -11,27 +11,26 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SRCS = ft_printf.c \
-		ft_putnbr_base.c \
-		ft_putptr.c
-OBJS = $(SRCS:.c=.o)
+SRCS = sources/ft_printf.c \
+		sources/ft_printf_char.c \
+		sources/ft_printf_nbr.c \
+		sources/ft_printf_nbrbase.c \
+		sources/ft_printf_ptr.c \
+		sources/ft_printf_str.c \
+		sources/ft_printf_unbr.c
+
 FLAGS = -c -Wall -Wextra -Werror
 AR_FLAGS = -rcs
-INCLUDE = -I./
+INCLUDE = -I./include
 
-%.o : %.c
-	gcc $(FLAGS) $(INCLUDE) $(SRCS)
+OBJS = $(SRCS:.c=.o)
 
 $(NAME) : $(OBJS)
-	make bonus -C ./libft
-	cp libft/libft.a $(NAME)
-	gcc $(FLAGS) $(INCLUDE) $(SRCS)
 	ar $(AR_FLAGS) $(NAME) $(OBJS)
 
 all : $(NAME)
 
 clean :
-	make clean -C ./libft
 	rm -f $(OBJS)
 
 fclean : clean

@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 20:20:53 by jujeon            #+#    #+#             */
-/*   Updated: 2021/12/15 20:26:45 by jujeon           ###   ########seoul.kr  */
+/*   Created: 2021/12/15 20:36:10 by jujeon            #+#    #+#             */
+/*   Updated: 2021/12/27 14:15:29 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putstr_fd(char *s)
+#include "../include/ft_printf.h"
+
+void	ft_printf_unbr_body(unsigned int n, int *p)
 {
-	size_t	i;
+	long long	tmp;
+
+	if (n < 0)
+	{
+		ft_printf_char('-');
+		tmp = (long long) n * (-1);
+		(*p)++;
+	}
+	else
+		tmp = n;
+	if (tmp > 9)
+		ft_printf_unbr_body(tmp / 10, p);
+	ft_printf_char(tmp % 10 + '0');
+	(*p)++;
+}
+
+int		ft_printf_unbr(unsigned int n)
+{
+	int	i;
+	int *p;
 
 	i = 0;
-	if (s == NULL)
-		return ;
-	while (s[i])
-	{
-		ft_putchar_fd(s[i]);
-		i++;
-	}
+	p = &i;
+	ft_printf_unbr_body(n, p);
+	return (i);
 }

@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 18:08:45 by jujeon            #+#    #+#             */
-/*   Updated: 2021/12/05 19:10:13 by jujeon           ###   ########seoul.kr  */
+/*   Created: 2021/12/14 10:41:20 by jujeon            #+#    #+#             */
+/*   Updated: 2022/02/10 00:22:00 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/ft_printf.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_printf_char(char c)
 {
-	char	*str;
-
-	str = (char *)s;
-	while (*str)
-	{
-		if (*str == (char)c)
-			return (str);
-		str++;
-	}
-	if (*str == c)
-		return (str);
-	return (NULL);
+	return (write(1, &c, 1));
 }

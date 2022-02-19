@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 22:34:42 by jujeon            #+#    #+#             */
-/*   Updated: 2021/11/27 22:35:06 by jujeon           ###   ########seoul.kr  */
+/*   Created: 2021/12/15 20:20:53 by jujeon            #+#    #+#             */
+/*   Updated: 2021/12/15 20:26:45 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "../include/ft_printf.h"
+
+int	ft_printf_str_body(char *s)
 {
-	if (65 <= c && c <= 90)
+	size_t	i;
+
+	i = 0;
+	while (s[i])
 	{
-		c += 32;
-		return (c);
+		ft_printf_char(s[i]);
+		i++;
 	}
+	return (i);
+}
+
+int	ft_printf_str(char *s)
+{
+	int	count;
+
+	count = 0;
+	if (s == 0)
+		count = ft_printf_str_body("(null)");
 	else
-		return (c);
+		count = ft_printf_str_body(s);
+	return (count);
 }

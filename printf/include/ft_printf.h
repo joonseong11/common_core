@@ -14,19 +14,19 @@
 # define FT_PRINTF_H
 # include <unistd.h>
 # include <stdarg.h>
-# include "../libft/libft.h"
 
 /*
 *****************************	MAIN FUNCTION	*******************************
  */
 
 int		ft_printf(const char *format, ...);
-int		ft_body(const char *format, va_list ap);
-void	ft_parse(char c, va_list ap);
-void	ft_putnbr_u(unsigned int u, int fd);
-void	ft_putnbr_base(int nbr, char *base);
-void	base_print(long num, char *base);
-int		base_check(char *base);
-void	ft_putptr(unsigned long long nbr, char *base);
+int     ft_printf_char(char c);
+int 	ft_printf_str(char *s);
+int		ft_printf_ptr(unsigned long long nbr, const char *base);
+int     ft_printf_nbr(int n);
+int     ft_printf_unbr(unsigned int n);
+int		ft_printf_nbrbase(unsigned int nbr, const char *base);
+void	base_print(long long num, const char *base, int *p);
+int	    base_check(const char *base);
 
 #endif

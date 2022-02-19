@@ -10,64 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "../include/ft_printf.h"
 
-int	base_check(const char *base)
+void	ft_printf_ptrbase(unsigned long long num, const char *base, int *p)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (base[i] != 0)
-	{
-		j = i + 1;
-		if (base[i] == '+' || base[i] == '-')
-			return (0);
-		while (base[j] != 0)
-		{
-			if (base[i] == base[j])
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	if (i <= 1)
-		return (0);
-	return (1);
-}
-
-void	base_print(long num, const char *base)
-{
-	int	len;
+	int			len;
 
 	len = 0;
 	while (base[len] != 0)
 		len++;
 	if (num >= len)
 	{
-		base_print(num / len, base);
-		base_print(num % len, base);
+		ft_printf_ptrbase(num / len, base, p);
+		ft_printf_ptrbase(num % len, base, p);
 	}
 	else
+	{
 		write(1, &base[num], 1);
+		(*p)++;
+	}
 }
 
-int 	ft_putnbr_base(int nbr, const char *base)
+int	ft_printf_ptr(unsigned long long nbr, const char *base)
 {
-	long	num;
+	int i;
+	int *p;
 
-	num = 0;
+	i = 2;
+	p = &i;
+	ft_printf_str("0x");
 	if (base_check(base) == 1)
 	{
-		if (nbr < 0)
-		{
-			num = nbr * (-1);
-			write(1, "-", 1);
-		}
-		else
-			num = nbr;
-		base_print(num, base);
+		ft_printf_ptrbase(nbr, base, p);
 	}
-	return ;
+	else
+		return (0);
+	return (*p);
 }
