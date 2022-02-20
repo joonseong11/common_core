@@ -19,13 +19,13 @@
 *****************************	MAIN FUNCTION	*******************************
  */
 
-int		ft_printf(const char *format, ...);
-int     ft_printf_char(char c);
-int 	ft_printf_str(char *s);
-int		ft_printf_ptr(unsigned long long nbr, const char *base);
-int     ft_printf_nbr(int n);
-int     ft_printf_unbr(unsigned int n);
-int		ft_printf_nbrbase(unsigned int nbr, const char *base);
-int	    base_check(const char *base);
+int	ft_printf(const char *format, ...);
+int	ft_printf_char(char c);
+int	ft_printf_str(char *s);
+int	ft_printf_ptr(unsigned long long nbr, const char *base);
+int	ft_printf_nbr(int n);
+int	ft_printf_unbr(unsigned int n);
+int	ft_printf_nbrbase(unsigned int nbr, const char *base);
+int	base_check(const char *base);
 
 #endif

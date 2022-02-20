@@ -30,10 +30,10 @@ void	ft_printf_unbr_body(unsigned int n, int *p)
 	(*p)++;
 }
 
-int		ft_printf_unbr(unsigned int n)
+int	ft_printf_unbr(unsigned int n)
 {
 	int	i;
-	int *p;
+	int	*p;
 
 	i = 0;
 	p = &i;

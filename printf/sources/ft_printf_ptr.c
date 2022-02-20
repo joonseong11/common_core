@@ -33,8 +33,8 @@ void	ft_printf_ptrbase(unsigned long long num, const char *base, int *p)
 
 int	ft_printf_ptr(unsigned long long nbr, const char *base)
 {
-	int i;
-	int *p;
+	int	i;
+	int	*p;
 
 	i = 2;
 	p = &i;

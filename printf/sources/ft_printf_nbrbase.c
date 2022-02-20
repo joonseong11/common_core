@@ -60,7 +60,7 @@ int	ft_printf_nbrbase(unsigned int nbr, const char *base)
 {
 	long long	num;
 	int			i;
-	int 		*p;
+	int			*p;
 
 	i = 0;
 	p = &i;
