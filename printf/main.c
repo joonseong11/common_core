@@ -24,6 +24,18 @@
 
 int main()
 {
-	printf("%p", NULL);
+	int a, b, c, d, e, f, g, h, i, j;
 
+	a = 10;
+	b = 20;
+	c= 30;
+	d=40;
+	e=50;
+	f=60;
+	g=70;
+	h=80;
+	i=90;
+	j=100;
+	printf("_printf : %d \n", printf("___printf : %p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n", &a,&b,&c,&d,&e,&f,&g,&h,&i,&j));
+	printf("ft_printf : %d \n", ft_printf("ft_printf : %p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n%p\n", &a,&b,&c,&d,&e,&f,&g,&h,&i,&j));
 }
