@@ -1,31 +1,42 @@
 #include "get_next_line.h"
 
-char	*get_next_buf(int	fd, char *temp)
+void	read_buf(int	fd, char *temp)
 {
 	ssize_t	check;
-	char	*buf;
+	char	  *buf;
 
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buf == 0)
-		return (NULL);
+  {
+    free(buf);
+		return ;
+  }
 	buf[0] = '\0';
-	check = read(fd, temp, BUFFER_SIZE);
-	if (check < 0)
-		return (NULL);
-	
+  while (ft_strchr(buf, '\n') == 0)
+  {
+    check = read(fd, buf, BUFFER_SIZE);
+    temp = ft_strjoin(temp, buf);
+    if (check < 0)
+    {
+      free(buf);
+      return ;
+    }
+  }
 }
 
 char	*get_next_line(int	fd)
 {
 	static char	*temp;
-	char		*line;
+	char	    	*line;
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	temp = get_next_buf(fd, temp);
-	if (temp == 0)
+	read_buf(fd, temp);
+	if (temp == NULL)
 		return (NULL);
-	line = parsing(temp);
-	temp = leave_after_NULL(temp);
+	line = line_truncate(temp);
+	temp = leave_newtemp(temp);
 	return (line);
 }
+
+
