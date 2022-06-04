@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 13:57:45 by jujeon            #+#    #+#             */
-/*   Updated: 2022/05/21 22:22:41 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/05/22 16:17:47 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,6 @@ char	*leave_newtemp(char *temp)
 	free(temp);
 	return (newtemp);
 }
-
-// (ft_strchr(temp, '\n') - temp) = index of after '\n' 
-// when you need to know about lenth of after '\n', just add 1 from index
 
 char	*line_truncate(char *temp)
 {

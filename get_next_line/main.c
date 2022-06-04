@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:05:15 by jujeon            #+#    #+#             */
-/*   Updated: 2022/05/21 19:43:37 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/05/22 19:26:50 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(void)
 	while (NULL != (line = get_next_line(fd1)))
 	{
 		printf("main line : %s \n", line);
+		///free(line);
 	}
 	close(fd1);
 	system("leaks a.out > leaks_result_temp; cat leaks_result_temp | grep leaked && rm -rf leaks_result_temp");
