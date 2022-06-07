@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 15:05:15 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/04 22:05:47 by jujeon           ###   ########.fr       */
+/*   Created: 2022/06/07 14:44:06 by jujeon            #+#    #+#             */
+/*   Updated: 2022/06/07 17:27:35 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
-int	main(void)
-{
-	int		fd1;
-	char	*line;
+#include "pipex.h"    
 
-		if (!(fd1 = open("./test1.txt", O_RDONLY)))
-	{
-		printf("\nError in open\n");
+int	main(int argc, char **argv, char **envp)
+{
+	pid_t	pid;
+	int		fd[2];
+
+	if (pipe(fd) == -1)
 		return (0);
-	}
-	printf("%d \n", fd1);
-	while (NULL != (line = get_next_line(fd1)))
-	{
-		printf("main line : %s \n", line);
-		///free(line);
-	}
-	close(fd1);
-	system("leaks a.out > leaks_result_temp; cat leaks_result_temp | grep leaked && rm -rf leaks_result_temp");
+	pid = fork();
+	if (pid == -1)
+		return (0);
+	else if (pid == 0)
+		child_proc();
+	else
+		parent_proc();
 	return (0);
 }

@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 15:05:15 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/04 22:05:47 by jujeon           ###   ########.fr       */
+/*   Created: 2022/06/07 17:27:54 by jujeon            #+#    #+#             */
+/*   Updated: 2022/06/07 19:52:11 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
-int	main(void)
-{
-	int		fd1;
-	char	*line;
+#ifndef PIPEX_H
+# define PIPEX_H
+/*
+** to write, read, close, access, pipe, dup, dup2, execve, fork **
+*/
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/uio.h>
 
-		if (!(fd1 = open("./test1.txt", O_RDONLY)))
-	{
-		printf("\nError in open\n");
-		return (0);
-	}
-	printf("%d \n", fd1);
-	while (NULL != (line = get_next_line(fd1)))
-	{
-		printf("main line : %s \n", line);
-		///free(line);
-	}
-	close(fd1);
-	system("leaks a.out > leaks_result_temp; cat leaks_result_temp | grep leaked && rm -rf leaks_result_temp");
-	return (0);
-}
+/* malloc, free, exit */
+#include <stdlib.h>
+
+/* open, unlink */
+#include <fcntl.h>
+
+/* waitpid, wait */
+#include <sys/wait.h>
+
+/* strerror */
+#include <string.h>
+
+/*to perror*/
+#include <stdio.h>
+
+/* to get_next_line */
+#include "../gnl/get_next_line.h"
+
+#endif
