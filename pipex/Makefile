@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+         #
+#    By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/08 23:01:14 by jujeon            #+#    #+#              #
-#    Updated: 2022/06/08 23:09:31 by jujeon           ###   ########.fr        #
+#    Updated: 2022/06/10 22:39:36 by jujeon           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror 
 
-NAME = mandatory/pipex
+NAME = pipex
 SRCS =	mandatory/pipex.c \
 		Libft/ft_calloc.c \
 		Libft/ft_split.c \

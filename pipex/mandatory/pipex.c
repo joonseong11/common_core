@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 14:44:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/08 22:56:09 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/10 23:01:51 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@ void	parent_proc(int *fd, char **argv, char **envp)
 	safe_dup2(fd_outfile, STDOUT_FILENO);
 	safe_close(fd[0]);
 	safe_execve(argv[3], envp);
+}
+
+void	pp_p(int *fd, char **argv, char **envp)
+{
+	pid_t	pid;
+	
+	pid = fork();
+	if (pid == -1)
+		error(ERR, pid);
+	else if (pid == 0)
+		parent_proc(fd, argv, envp);
+	else
+		wait(NULL);
+	return ;
 }
 
 void	child_proc(int *fd, char **argv, char **envp)
@@ -50,12 +64,9 @@ int	main(int argc, char **argv, char **envp)
 	else if (pid == 0)
 		child_proc(fd, argv, envp);
 	else
-	{
-		wait(NULL);
-		parent_proc(fd, argv, envp);
-	}
+		pp_p(fd, argv, envp);
 	return (0);
 }
 
 // < file1 cmd1 | cmd2 file2 >
-// ./pipex file1 cmd1 cmd2 file2x
+// ./pipex file1 cmd1 cmd2 file2
