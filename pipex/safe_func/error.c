@@ -6,11 +6,11 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 16:27:33 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/08 17:47:35 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/11 19:41:17 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../include/pipex.h"
 
 void	error(int mode, int ret)
 {

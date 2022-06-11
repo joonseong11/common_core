@@ -6,11 +6,11 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 17:03:40 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/08 22:40:43 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/11 19:41:20 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../include/pipex.h"
 
 int	safe_dup2(int fd1, int fd2)
 {

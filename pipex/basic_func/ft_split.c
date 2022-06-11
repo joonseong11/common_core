@@ -6,11 +6,11 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 15:50:01 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/08 20:45:54 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/11 19:42:39 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../include/pipex.h"
 
 int	find_it(char const *s, char c)
 {

@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   safe_close.c                                       :+:      :+:    :+:   */
+/*   safe_unlink.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/08 16:05:22 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/11 19:41:18 by jujeon           ###   ########.fr       */
+/*   Created: 2022/06/11 21:35:23 by jujeon            #+#    #+#             */
+/*   Updated: 2022/06/11 22:03:04 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
 
-void	safe_close(int fd)
+#include "../include/pipex_bonus.h"
+
+void	safe_unlink(const char *path)
 {
 	int	err;
 
-	err = close(fd);
+	err = unlink(path);
 	error(ERR, err);
 }

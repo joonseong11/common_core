@@ -6,11 +6,11 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 20:32:10 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/08 22:43:21 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/11 19:42:45 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../include/pipex.h"
 
 char	*safe_path(char *cmd, char **envp)
 {

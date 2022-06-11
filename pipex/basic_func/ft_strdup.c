@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   safe_close.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/08 16:05:22 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/11 19:41:18 by jujeon           ###   ########.fr       */
+/*   Created: 2021/11/30 17:47:24 by jujeon            #+#    #+#             */
+/*   Updated: 2022/06/11 19:43:23 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-void	safe_close(int fd)
+char	*ft_strdup(const char *s1)
 {
-	int	err;
+	char	*str;
+	int		len;
+	int		i;
 
-	err = close(fd);
-	error(ERR, err);
+	i = 0;
+	len = ft_strlen(s1);
+	str = malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+		return (0);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

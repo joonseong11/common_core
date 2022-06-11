@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/27 14:36:29 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/08 22:38:49 by jujeon           ###   ########.fr       */
+/*   Created: 2021/12/12 16:44:57 by jujeon            #+#    #+#             */
+/*   Updated: 2022/06/11 19:42:42 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../include/pipex.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
+	size_t	len;
+	char	*str;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	i = 0;
-	while (str[i] != 0)
+	j = 0;
+	len = ft_strlen(s1) + ft_strlen(s2);
+	str = malloc(sizeof(char) * (len) + 1);
+	if (str == NULL)
+		return (NULL);
+	while (i < ft_strlen(s1))
+	{
+		str[i] = s1[i];
 		i++;
-	return (i);
+	}
+	while (i < len)
+		str[i++] = s2[j++];
+	str [i] = '\0';
+	return (str);
 }

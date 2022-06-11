@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 16:44:57 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/08 22:38:46 by jujeon           ###   ########.fr       */
+/*   Created: 2021/12/12 16:00:53 by jujeon            #+#    #+#             */
+/*   Updated: 2022/06/11 19:42:43 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../include/pipex.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	size_t	j;
-	size_t	len;
 	char	*str;
+	size_t	ourlen;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s == NULL)
 		return (NULL);
 	i = 0;
-	j = 0;
-	len = ft_strlen(s1) + ft_strlen(s2);
-	str = malloc(sizeof(char) * (len) + 1);
-	if (str == NULL)
+	ourlen = ft_strlen(s);
+	if (start >= ourlen)
+		return (ft_strdup(""));
+	if (ourlen - start < len)
+		len = ourlen - start;
+	str = malloc(sizeof(char) * (len + 1));
+	if (str == 0)
 		return (NULL);
-	while (i < ft_strlen(s1))
-	{
-		str[i] = s1[i];
-		i++;
-	}
 	while (i < len)
-		str[i++] = s2[j++];
-	str [i] = '\0';
+		str[i++] = s[start++];
+	str[i] = '\0';
 	return (str);
 }
+
+// str : abc len : 999999999999
+// str : abc\000000000000000000000000000000000000000000
+// -> str : abc\0

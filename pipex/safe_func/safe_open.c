@@ -6,11 +6,11 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 16:07:47 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/08 17:49:24 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/11 19:42:45 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../include/pipex.h"
 
 int	safe_open(const char *file_name, int flags)
 {

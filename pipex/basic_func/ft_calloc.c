@@ -6,11 +6,11 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 16:19:29 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/08 20:45:52 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/11 19:42:44 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../include/pipex.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
