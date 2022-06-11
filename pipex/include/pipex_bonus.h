@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 17:27:54 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/11 21:31:34 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/11 22:06:50 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,9 @@ void	safe_execve(char *cmd, char **envp);
 char	**safe_getcmd(char *cmd);
 char	*safe_path(char *cmd, char **envp);
 
+/* bonus proc functions */
+void	func_heredoc(int infile, char *LIMITER);
+void	func_proc(int argc, char **argv, char **envp, t_proc_info info);
+void	cmd_proc(char *cmd, char **envp);
+void	lastcmd_proc(int infile, int outfile);
 #endif

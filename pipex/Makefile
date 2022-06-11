@@ -6,7 +6,7 @@
 #    By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/08 23:01:14 by jujeon            #+#    #+#              #
-#    Updated: 2022/06/11 19:37:01 by jujeon           ###   ########.fr        #
+#    Updated: 2022/06/11 22:09:52 by jujeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,12 +31,21 @@ SRCS =	mandatory/pipex.c \
 		safe_func/safe_path.c \
 		safe_func/safe_pipe.c
 OBJS = $(SRCS:%.c=%.o)
+BONUS_NAME = pipex
+BONUS_SRCS = bonus/pipex_bonus.c \
+			bonus/proc_funcs.c \
+			bonus/safe_unlink.c \
+			bonus/get_next_line.c \
+			bonus/get_next_line_utils.c
+BONUS_OBJS = $(BONUS_SRCS:%.c=%.o)
 INCLUDES = -I./include
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $(<:.c=.o)
 
 all: $(NAME)
+
+bonus: $(BONUS_NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $^
@@ -45,10 +54,10 @@ $(BONUS_NAME): $(BONUS_OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $^
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUS_NAME)
 
 re: fclean all
 
