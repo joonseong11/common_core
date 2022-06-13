@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 14:44:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/11 21:21:12 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/13 20:33:52 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void	parent_proc(int *fd, char **argv, char **envp)
 		error(ERR, pid);
 	else if (pid == 0)
 		child2_proc(fd, argv, envp);
-	else
-		wait(NULL);
 	return ;
 }
 
@@ -56,7 +54,7 @@ int	main(int argc, char **argv, char **envp)
 	pid_t	pid;
 
 	if (argc != 5)
-		error(ARG, NULL);
+		error(ARG, 0);
 	safe_pipe(fd);
 	pid = fork();
 	if (pid == -1)
@@ -64,7 +62,10 @@ int	main(int argc, char **argv, char **envp)
 	else if (pid == 0)
 		child_proc(fd, argv, envp);
 	else
+	{
 		parent_proc(fd, argv, envp);
+	}
+	wait(NULL);
 	return (0);
 }
 

@@ -6,14 +6,14 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 17:27:54 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/11 16:12:26 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/13 20:51:04 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-/* pid_t close pipe fork execve access */
+/* pid_t close pipe fork execve access unlink */
 # include <unistd.h>
 
 /* perror exit */
@@ -31,6 +31,16 @@ typedef enum e_error
 	ERR,
 	ARG
 }t_error;
+
+typedef struct s_proc_info
+{
+	int		argc;
+	char	**argv;
+	char	**envp;
+	int		infile;
+	int		outfile;
+	int		i;
+}	t_proc_info;
 
 /* basic functions */
 size_t	ft_strlen(const char *str);
@@ -51,4 +61,10 @@ void	safe_execve(char *cmd, char **envp);
 char	**safe_getcmd(char *cmd);
 char	*safe_path(char *cmd, char **envp);
 
+/* bonus proc functions */
+void	func_heredoc(int infile, char *LIMITER);
+void	func_proc(t_proc_info info);
+void	func_cmd(char *cmd, char **envp);
+void	func_lastcmd(t_proc_info info);
+void	safe_unlink(const char *path);
 #endif

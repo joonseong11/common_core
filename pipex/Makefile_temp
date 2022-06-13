@@ -6,7 +6,7 @@
 #    By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/08 23:01:14 by jujeon            #+#    #+#              #
-#    Updated: 2022/06/13 21:15:59 by jujeon           ###   ########.fr        #
+#    Updated: 2022/06/13 20:21:01 by jujeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,6 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror 
 
 NAME = pipex
-BNS_NAME = ./bonus/pipex
-
 SRCS = mandatory/pipex.c
 SHARED_SRCS = basic_func/ft_calloc.c \
 			basic_func/ft_split.c \
@@ -32,8 +30,8 @@ SHARED_SRCS = basic_func/ft_calloc.c \
 			safe_func/safe_open.c \
 			safe_func/safe_path.c \
 			safe_func/safe_pipe.c
-BONUS_SRCS = bonus/proc_funcs.c \
-			bonus/pipex_bonus.c \
+BONUS_SRCS = bonus/pipex_bonus.c \
+			bonus/proc_funcs.c \
 			bonus/safe_unlink.c \
 			bonus/get_next_line.c \
 			bonus/get_next_line_utils.c
@@ -48,18 +46,19 @@ INCLUDES = -I./include
 $(NAME): $(OBJS) $(SHARED_OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $(OBJS) $(SHARED_OBJ)
 
-$(BNS_NAME): $(BONUS_OBJS) $(SHARED_OBJ)
-	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $(BONUS_OBJS) $(SHARED_OBJ)
-
 all: $(NAME)
 
-bonus: $(BNS_NAME)
+.PHONY: bonus
+bonus: fclean
+		$(SHARED_OBJ) $(BNS_OBJ)
+		$(CC) $(CFLAGS) $(INCLUDES) -o $(NAME) $(SHARED_OBJ) $(BNS_OBJ)
+
 
 clean:
-	rm -f $(OBJS) $(SHARED_OBJ) $(BONUS_OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUS_NAME)
 
 re: fclean all
 

@@ -6,12 +6,13 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:02:04 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/11 20:21:18 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/13 17:49:01 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+# define BUFFER_SIZE 42
 # include <unistd.h>
 # include <stdlib.h>
 

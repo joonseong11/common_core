@@ -6,14 +6,14 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 17:27:54 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/11 22:06:50 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/13 19:44:55 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_BONUS_H
 # define PIPEX_BONUS_H
 
-/* pid_t close pipe fork execve access */
+/* pid_t close pipe fork execve access unlink */
 # include <unistd.h>
 
 /* perror exit */
@@ -34,6 +34,9 @@ typedef enum e_error
 
 typedef struct s_proc_info
 {
+	int		argc;
+	char	**argv;
+	char	**envp;
 	int		infile;
 	int		outfile;
 	int		i;
@@ -60,7 +63,8 @@ char	*safe_path(char *cmd, char **envp);
 
 /* bonus proc functions */
 void	func_heredoc(int infile, char *LIMITER);
-void	func_proc(int argc, char **argv, char **envp, t_proc_info info);
-void	cmd_proc(char *cmd, char **envp);
-void	lastcmd_proc(int infile, int outfile);
+void	func_proc(t_proc_info info);
+void	func_cmd(char *cmd, char **envp);
+void	func_lastcmd(t_proc_info info);
+void	safe_unlink(const char *path);
 #endif
