@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 14:44:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/13 21:34:40 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/13 23:27:19 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	case_redirection(t_proc_info info)
 {
 	if (info.argc < 5)
 		error(ARG, 0);
-	info.infile = open(info.argv[1], O_RDONLY);
-	info.outfile = open(info.argv[info.argc - 1], \
+	info.infile = safe_open(info.argv[1], O_RDONLY);
+	info.outfile = safe_open(info.argv[info.argc - 1], \
 						O_WRONLY | O_TRUNC | O_CREAT);
 	info.i = 3;
 	func_proc(info);
@@ -33,17 +33,18 @@ void	case_heredoc(t_proc_info info)
 {
 	if (info.argc < 6)
 		error(ARG, 0);
-	info.infile = open("./tmp_file", O_WRONLY | O_TRUNC | O_CREAT, 0755);
-	info.outfile = open(info.argv[info.argc - 1], \
-					O_WRONLY | O_APPEND | O_CREAT);
+	info.infile = safe_open("tmp_file", O_WRONLY | O_TRUNC | O_CREAT);
+	info.outfile = safe_open(info.argv[info.argc - 1], \
+					O_RDWR | O_APPEND | O_CREAT);
 	info.i = 4;
 	func_heredoc(info.infile, info.argv[2]);
 	func_proc(info);
-	while (info.i < info.argc)
-	{
-		wait(NULL);
-		++info.i;
-	}
+	printf("%d, %d\n", info.i, info.argc);
+	// while (info.i < info.argc)
+	// {
+	// 	wait(NULL);
+	// 	++info.i;
+	// }
 	return ;
 }
 

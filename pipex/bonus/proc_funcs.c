@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:02:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/13 20:51:58 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/13 23:39:38 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,13 @@ void	func_lastcmd(t_proc_info info)
 		safe_execve(info.argv[info.argc - 2], info.envp);
 	}
 	else
-		return ;
+	{
+		while (info.i < info.argc)
+		{
+			wait(NULL);
+			++info.i;
+		}
+	}
 	return ;
 }
 
@@ -65,7 +71,7 @@ void	func_proc(t_proc_info info)
 	safe_dup2(info.infile, STDIN_FILENO);
 	while (j < info.argc)
 	{
-		func_cmd(info.argv[j], info.envp);
+		func_cmd(info.argv[j - 1], info.envp);
 		++j;
 	}
 	safe_dup2(info.outfile, STDOUT_FILENO);
@@ -79,7 +85,7 @@ void	func_heredoc(int infile, char *LIMITER)
 
 	while (1)
 	{
-		line = get_next_line(infile);
+		line = get_next_line(STDIN_FILENO);
 		if (ft_strnstr(line, LIMITER, ft_strlen(LIMITER)))
 		{
 			free(line);
