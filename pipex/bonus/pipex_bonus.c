@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 14:44:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/13 23:27:19 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/13 23:47:01 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,6 @@ void	case_heredoc(t_proc_info info)
 	func_heredoc(info.infile, info.argv[2]);
 	func_proc(info);
 	printf("%d, %d\n", info.i, info.argc);
-	// while (info.i < info.argc)
-	// {
-	// 	wait(NULL);
-	// 	++info.i;
-	// }
 	return ;
 }
 
