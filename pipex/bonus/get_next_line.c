@@ -6,11 +6,11 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 13:57:45 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/11 20:22:45 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/13 20:45:39 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../include/get_next_line.h"
 
 char	*g_strjoin(char const *s1, char const *s2)
 {

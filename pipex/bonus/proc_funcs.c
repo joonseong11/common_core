@@ -6,13 +6,14 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:02:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/11 22:03:36 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/13 20:51:58 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex_bonus.h"
+#include "../include/pipex.h"
+#include "../include/get_next_line.h"
 
-void	lastcmd_proc(int infile, int outfile)
+void	func_lastcmd(t_proc_info info)
 {
 	pid_t	pid;
 
@@ -21,17 +22,17 @@ void	lastcmd_proc(int infile, int outfile)
 		error(ERR, pid);
 	else if (pid == 0)
 	{
-		dup2(outfile, STDOUT_FILENO);
-		if (access("./tmp_file", F_OK) == 0)
-			safe_unlink("./tmp_file");
-		safe_execve(argv[argc - 2], envp);
+		safe_dup2(info.outfile, STDOUT_FILENO);
+		if (access("tmp_file", F_OK) == 0)
+			safe_unlink("tmp_file");
+		safe_execve(info.argv[info.argc - 2], info.envp);
 	}
 	else
 		return ;
 	return ;
 }
 
-void	cmd_proc(char *cmd, char **envp)
+void	func_cmd(char *cmd, char **envp)
 {
 	int		fd[2];
 	pid_t	pid;
@@ -42,25 +43,33 @@ void	cmd_proc(char *cmd, char **envp)
 		error(ERR, pid);
 	else if (pid == 0)
 	{
-		dup2(fd[1], STDOUT_FILENO);
+		close(fd[0]);
+		safe_dup2(fd[1], STDOUT_FILENO);
+		close(fd[1]);
 		safe_execve(cmd, envp);
 	}
 	else
 	{
-		dup2(fd[0], STDIN_FILENO);
+		close(fd[1]);
+		safe_dup2(fd[0], STDIN_FILENO);
+		close(fd[0]);
 	}
 	return ;
 }
 
-void	func_proc(int argc, char **argv, char **envp, t_proc_info info)
+void	func_proc(t_proc_info info)
 {
 	int	j;
 
 	j = info.i;
 	safe_dup2(info.infile, STDIN_FILENO);
-	while (j < argc)
-		cmd_proc(argv[j], envp);
-	lastcmd_proc(info.infile, info.outfile);
+	while (j < info.argc)
+	{
+		func_cmd(info.argv[j], info.envp);
+		++j;
+	}
+	safe_dup2(info.outfile, STDOUT_FILENO);
+	func_lastcmd(info);
 	return ;
 }
 
