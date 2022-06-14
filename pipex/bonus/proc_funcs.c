@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:02:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/13 23:39:38 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/14 12:41:23 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	func_proc(t_proc_info info)
 
 	j = info.i;
 	safe_dup2(info.infile, STDIN_FILENO);
-	while (j < info.argc)
+	while (j < info.argc - info.h)
 	{
 		func_cmd(info.argv[j - 1], info.envp);
 		++j;

@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 14:44:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/13 23:00:35 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/14 14:08:11 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,13 @@ void	parent_proc(int *fd, char **argv, char **envp)
 		error(ERR, pid);
 	else if (pid == 0)
 		child2_proc(fd, argv, envp);
-	wait(NULL);
-	wait(NULL);
+	else
+	{
+		safe_close(fd[0]);
+		safe_close(fd[1]);
+		wait(NULL);
+		wait(NULL);
+	}
 	return ;
 }
 

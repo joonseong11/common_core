@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 14:44:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/13 23:47:01 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/14 12:44:52 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,12 @@ void	case_heredoc(t_proc_info info)
 {
 	if (info.argc < 6)
 		error(ARG, 0);
-	info.infile = safe_open("tmp_file", O_WRONLY | O_TRUNC | O_CREAT);
+	info.infile = safe_open("tmp_file", O_RDWR | O_TRUNC | O_CREAT);
 	info.outfile = safe_open(info.argv[info.argc - 1], \
 					O_RDWR | O_APPEND | O_CREAT);
 	info.i = 4;
 	func_heredoc(info.infile, info.argv[2]);
 	func_proc(info);
-	printf("%d, %d\n", info.i, info.argc);
 	return ;
 }
 
@@ -50,12 +49,16 @@ int	main(int argc, char **argv, char **envp)
 	info.argc = argc;
 	info.argv = argv;
 	info.envp = envp;
-	if (argc < 5)
-		error(ARG, 0);
 	if (ft_strnstr(argv[1], "here_doc", 8) > 0)
+	{
+		info.h = 1;
 		case_heredoc(info);
+	}
 	else
+	{
+		info.h = 0;
 		case_redirection(info);
+	}
 	return (0);
 }
 

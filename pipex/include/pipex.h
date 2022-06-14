@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 17:27:54 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/13 20:51:04 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/14 12:18:01 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_proc_info
 	int		infile;
 	int		outfile;
 	int		i;
+	int		h;
 }	t_proc_info;
 
 /* basic functions */
