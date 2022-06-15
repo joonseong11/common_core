@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   proc_funcs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:02:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/14 12:41:23 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/15 17:41:56 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	func_proc(t_proc_info info)
 	return ;
 }
 
-void	func_heredoc(int infile, char *LIMITER)
+t_proc_info	func_heredoc(t_proc_info info, char *LIMITER)
 {
 	char	*line;
 
@@ -92,8 +92,8 @@ void	func_heredoc(int infile, char *LIMITER)
 			line = 0;
 			break ;
 		}
-		write(infile, line, ft_strlen(line));
+		write(info.infile, line, ft_strlen(line));
 	}
-	infile = open("./tmp_file", O_RDONLY);
-	return ;
+	info.infile = open("tmp_file", O_RDONLY);
+	return (info);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 14:44:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/14 12:44:52 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/15 17:41:03 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	case_heredoc(t_proc_info info)
 	info.outfile = safe_open(info.argv[info.argc - 1], \
 					O_RDWR | O_APPEND | O_CREAT);
 	info.i = 4;
-	func_heredoc(info.infile, info.argv[2]);
+	info = func_heredoc(info, info.argv[2]);
 	func_proc(info);
 	return ;
 }

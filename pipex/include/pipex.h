@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 17:27:54 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/14 12:18:01 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/15 17:41:37 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ char	**safe_getcmd(char *cmd);
 char	*safe_path(char *cmd, char **envp);
 
 /* bonus proc functions */
-void	func_heredoc(int infile, char *LIMITER);
-void	func_proc(t_proc_info info);
-void	func_cmd(char *cmd, char **envp);
-void	func_lastcmd(t_proc_info info);
-void	safe_unlink(const char *path);
+t_proc_info	func_heredoc(t_proc_info info, char *LIMITER);
+void		func_proc(t_proc_info info);
+void		func_cmd(char *cmd, char **envp);
+void		func_lastcmd(t_proc_info info);
+void		safe_unlink(const char *path);
 #endif
