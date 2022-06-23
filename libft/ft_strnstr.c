@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 19:26:17 by jujeon            #+#    #+#             */
-/*   Updated: 2022/06/08 21:38:14 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/06/13 23:48:26 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	char	*str;
 
 	i = 0;
+	if (haystack == NULL)
+		return (NULL);
 	str = (char *)haystack;
 	if (needle[0] == '\0')
 		return (str);
