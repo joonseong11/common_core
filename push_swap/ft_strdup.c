@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 11:36:59 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/01 01:58:40 by jujeon           ###   ########seoul.kr  */
+/*   Created: 2021/11/30 17:47:24 by jujeon            #+#    #+#             */
+/*   Updated: 2022/07/01 01:16:49 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+char	*ft_strdup(const char *s1)
 {
-	if (lst == NULL || del == NULL)
-		return ;
-	del(lst->content);
-	free(lst);
-	lst = NULL;
+	char	*str;
+	int		len;
+	int		i;
+
+	i = 0;
+	len = ft_strlen(s1);
+	str = malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+		return (0);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

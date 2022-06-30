@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 11:36:59 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/01 01:58:40 by jujeon           ###   ########seoul.kr  */
+/*   Created: 2021/11/27 14:36:29 by jujeon            #+#    #+#             */
+/*   Updated: 2022/07/01 01:16:37 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+size_t	ft_strlen(const char *str)
 {
-	if (lst == NULL || del == NULL)
-		return ;
-	del(lst->content);
-	free(lst);
-	lst = NULL;
+	int	i;
+
+	i = 0;
+	if (str == NULL)
+		return ((size_t) NULL);
+	while (str[i] != 0)
+		i++;
+	return (i);
 }

@@ -6,11 +6,11 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:25:42 by jujeon            #+#    #+#             */
-/*   Updated: 2022/01/12 14:25:43 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/01 01:43:27 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
