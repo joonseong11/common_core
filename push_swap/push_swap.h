@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/01 03:01:59 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/04 10:09:25 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-enum e_caseoferror
+enum e_yesorno
+{
+	NO = 0,
+	YES = 1
+};
+enum e_errcase
 {
 	NOARG = 0,
 	NOINT,
@@ -39,14 +44,16 @@ typedef struct s_stack
 /*
 * 				BASIC FUNC
 */
-t_list	*ft_lstnew(void *content);
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
-void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_lstlast(t_list *lst);
-size_t	ft_strlen(const char *str);
-void	*ft_calloc(size_t count, size_t size);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strdup(const char *s1);
-char	**ft_split(char const *s, char c);
+t_list		*ft_lstnew(void *content);
+void		ft_lstdelone(t_list *lst, void (*del)(void*));
+void		ft_lstadd_back(t_list **lst, t_list *new);
+t_list		*ft_lstlast(t_list *lst);
+size_t		ft_strlen(const char *str);
+void		*ft_calloc(size_t count, size_t size);
+char		*ft_substr(char const *s, unsigned int start, size_t len);
+char		*ft_strdup(const char *s1);
+char		**ft_split(char const *s, char c);
+long long	ft_atolong(const	char	*str);
+
 
 #endif
