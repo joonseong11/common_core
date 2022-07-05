@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/04 10:09:25 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/06 02:22:03 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,60 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h> 	// you must remove it!!!!!!!!!!!!!!!!!
+
+/*
+* 							ENUM								*
+*/
 
 enum e_yesorno
 {
 	NO = 0,
 	YES = 1
 };
+
 enum e_errcase
 {
 	NOARG = 0,
 	NOINT,
 	OUTOFINT,
-	OVERLAP
+	OVERLAP,
+	OTHER
 };
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
-
-typedef struct s_stack
-{
-	char	whether_a_or_b;
-	t_list	*bottom;
-	t_list	*top;
-	int		size;
-}	t_stack;
 
 /*
-* 				BASIC FUNC
+* 							STRUCTURE								*
 */
-t_list		*ft_lstnew(void *content);
-void		ft_lstdelone(t_list *lst, void (*del)(void*));
-void		ft_lstadd_back(t_list **lst, t_list *new);
-t_list		*ft_lstlast(t_list *lst);
+
+typedef struct s_node
+{
+	int				data;
+	struct s_node	*next;
+	struct s_node	*back;
+}	t_node;
+
+typedef struct	s_info
+{
+	t_node	*stacka_top;
+	t_node	*stacka_bot;
+	t_node	*stackb_top;
+	t_node	*stackb_bot;
+}	t_info;
+
+/*
+* 							NODE FUNC								*
+*/
+
+t_node		*ft_nodenew(int data);
+void		ft_nodedelone(t_node *lst);
+void		ft_nodeadd_back(t_node **lst, t_node *new);
+t_node		*ft_nodelast(t_node *lst);
+int			ft_nodesize(t_node *lst);
+
+/*
+*							BASIC FUNC								*
+*/
+
 size_t		ft_strlen(const char *str);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
@@ -55,5 +75,12 @@ char		*ft_strdup(const char *s1);
 char		**ft_split(char const *s, char c);
 long long	ft_atolong(const	char	*str);
 
+/*
+*							MANDATORY								*
+*/
+void	init(int argc, char **argv, t_info *info);
+void	make_stacks(t_info *info);
+void	putintostacka(char **arr, t_info *info);
+void	isnoint(char *str);
 
 #endif

@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_nodeadd_back.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 14:19:56 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/01 01:50:15 by jujeon           ###   ########seoul.kr  */
+/*   Created: 2022/01/12 14:25:42 by jujeon            #+#    #+#             */
+/*   Updated: 2022/07/06 00:44:05 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_nodeadd_back(t_node **lst, t_node *new)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
+	t_node	*last;
+
+	if (lst == NULL || new == NULL)
+		return ;
+	if (*lst == NULL)
 	{
-		lst = lst->next;
+		*lst = new;
 	}
-	return (lst);
+	else
+	{
+		last = ft_nodelast(*lst);
+		last->next = new;
+	}
 }

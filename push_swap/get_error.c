@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   get_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 14:03:03 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/01 01:42:11 by jujeon           ###   ########seoul.kr  */
+/*   Created: 2022/07/06 02:20:49 by jujeon            #+#    #+#             */
+/*   Updated: 2022/07/06 02:20:56 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+void	get_error(int errcase)
 {
-	t_list	*head;
-
-	head = malloc(sizeof(t_list));
-	if (head == NULL)
-		return (NULL);
-	head -> content = content;
-	head -> next = NULL;
-	return (head);
+	if (errcase == NOARG)
+		;
+	else if (errcase == NOINT || errcase == OUTOFINT || \
+		errcase == OVERLAP)
+		printf("Error\n");//		you need to add ft_
+	else
+		printf("Developer's error\n");//you need to add ft_
+	exit(EXIT_FAILURE);
 }

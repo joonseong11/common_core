@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_nodesize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 14:25:42 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/01 01:43:27 by jujeon           ###   ########seoul.kr  */
+/*   Created: 2022/01/12 14:10:12 by jujeon            #+#    #+#             */
+/*   Updated: 2022/07/06 00:33:25 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_nodesize(t_node *lst)
 {
-	t_list	*last;
+	int		count;
+	t_node	*curr;
 
-	if (lst == NULL || new == NULL)
-		return ;
-	if (*lst == NULL)
+	count = 0;
+	curr = lst;
+	while (curr != NULL)
 	{
-		*lst = new;
+		curr = curr->next;
+		++count;
 	}
-	else
-	{
-		last = ft_lstlast(*lst);
-		last->next = new;
-	}
+	return (count);
 }

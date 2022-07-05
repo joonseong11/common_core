@@ -6,17 +6,16 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:36:59 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/01 01:58:40 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/06 00:43:47 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_nodedelone(t_node *lst)
 {
-	if (lst == NULL || del == NULL)
+	if (lst == NULL)
 		return ;
-	del(lst->content);
 	free(lst);
 	lst = NULL;
 }

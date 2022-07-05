@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 23:00:01 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/06 02:21:05 by jujeon           ###   ########seoul.kr  */
+/*   Created: 2022/01/12 14:19:56 by jujeon            #+#    #+#             */
+/*   Updated: 2022/07/06 00:29:00 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+t_node	*ft_nodelast(t_node *lst)
 {
-	t_info	*info;
-
-	info = malloc(sizeof(t_info));	
-	init(argc, argv, info);
-	// dosort();
-	// printcmds();
-	return (0);
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }
