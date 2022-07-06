@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 02:19:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/06 02:31:43 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/06 10:44:35 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,25 @@ void	isnoint(char *str)
 	if (*str < '0' || *str > '9')
 		get_error(NOINT);
 }
-/*
+
 void	checkOVERLAP(t_info *info)
 {
 	int		size;
 	int		*arr;
+	int		i;
 	t_node 	*curr;
 
+	i = 0;
 	size = ft_nodesize(info->stacka_top) - 1;
 	arr = ft_calloc(size, sizeof(int));
-	curr = info->stacka_top;
+	curr = info->stacka_top->next;
 	while (curr)
 	{
-		arr[i] = 
+		arr[i++] = curr->data;
 		curr = curr->next;
 	}
 }
-*/
+
 /*
 size means TOP -> NODE1 -> NODE2 -> ... NODEn
 ft_nodesize calculate Nodes number + 1 (TOP Node)
