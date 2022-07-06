@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/06 16:39:57 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/07 07:14:00 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,21 @@ char		**ft_split(char const *s, char c);
 long long	ft_atolong(const	char	*str);
 
 /*
-*							MANDATORY								*
+*							ERROR FUNC								*
 */
-void	init(int argc, char **argv, t_info *info);
-void	make_stacks(t_info *info);
+
+void	get_error(int errcase); // you need to add ft_ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void	check_overlap(t_node *head, int num);
+void 	check_outofint(int num);
+void	check_noint(char *str);
+void	check_noarg(int argc);
+
+/*
+*							MANDATORY FUNC								*
+*/
+
 void	putintostacka(char **arr, t_info *info);
-void	isnoint(char *str);
+void	make_stacks(t_info *info);
+void	init(int argc, char **argv, t_info *info);
 
 #endif

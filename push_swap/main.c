@@ -3,22 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:00:01 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/06 14:33:23 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/07 06:39:54 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	do_sort(t_info *info)
+{
+	pb();
+	pa();
+	sa();
+	sb();
+	ss();
+	ra();
+	rb();
+	rr();
+	rra();
+	rrb();
+	rrr();
+}
+
+int		main(int argc, char **argv)
 {
 	t_info	*info;
 
 	info = malloc(sizeof(t_info));
 	init(argc, argv, info);
-	// dosort();
+	do_sort(info);
 	// printcmds();
 	return (0);
 }

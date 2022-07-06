@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 02:20:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/06 02:20:56 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/07 07:12:38 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,44 @@ void	get_error(int errcase)
 		errcase == OVERLAP)
 		printf("Error\n");//		you need to add ft_
 	else
-		printf("Developer's error\n");//you need to add ft_
+		printf("Developer's error\n");//you need to add ft_ !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	exit(EXIT_FAILURE);
+}
+
+void	check_overlap(t_node *head, int num)
+{
+	t_node	*curr;
+
+	curr = head->next;
+	while (curr)
+	{
+		if (curr->data == num)
+			get_error(OVERLAP);
+		curr = curr->next;
+	}
+}
+
+void 	check_outofint(int num)
+{
+	if (num < -2147483648 || num > 2147483647)
+			get_error(OUTOFINT);
+}
+
+void	check_noint(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
+		str++;
+	if (*str < '0' || *str > '9')
+		get_error(NOINT);
+}
+
+void	check_noarg(int argc)
+{
+	if (argc < 2)
+		get_error(NOARG);
 }
