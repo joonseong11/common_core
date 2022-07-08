@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:08:50 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/08 20:41:40 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/08 21:44:51 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,34 +37,37 @@ void	swap_size_morethan_two(t_head *top, t_head *bot)
 	top->next = obj_b;
 }
 
-void	ss(t_info *info)
+int	ss(t_info *info)
 {
-	sa(info);
-	sb(info);
+	if (sa(info) == 0 && sb(info) == 0)
+		return (0);
+	return (1);
 }
 
-void	sb(t_info *info)
+int	sb(t_info *info)
 {
 	int	size;
 
 	size = ft_nodesize(info->stackb_top->next);
 	if (size < 2)
-		return ;
+		return (0);
 	else if (size == 2)
 		swap_size_two(info->stackb_top, info->stackb_bot);
 	else
 		swap_size_morethan_two(info->stackb_top, info->stackb_bot);
+	return (1);
 }
 
-void	sa(t_info *info)
+int	sa(t_info *info)
 {
 	int	size;
 
 	size = ft_nodesize(info->stacka_top->next);
 	if (size < 2)
-		return ;
+		return (0);
 	else if (size == 2)
 		swap_size_two(info->stacka_top, info->stacka_bot);
 	else
 		swap_size_morethan_two(info->stacka_top, info->stacka_bot);
+	return (1);
 }

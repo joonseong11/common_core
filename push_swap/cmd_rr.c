@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cmd_rr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 23:00:01 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/08 21:54:33 by jujeon           ###   ########.fr       */
+/*   Created: 2022/07/08 21:39:33 by jujeon            #+#    #+#             */
+/*   Updated: 2022/07/08 22:27:39 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	do_sort(t_info *info)
+int	rra(t_info *info)
 {
-}
+	int		size;
+	t_node	*obj;
 
-int	main(int argc, char **argv)
-{
-	t_info	*info;
-
-	info = malloc(sizeof(t_info));
-	init(argc, argv, info);
-	//do_sort(info);
-	//printcmds();
-	test_start(info);
-	test_ra(info);
-	return (0);
+	size = ft_nodesize(info->stackb_top->next);
+	if (size < 2)
+		return (0);
+	else
+	{
+		obj = info->stacka_bot->next;
+		info->stacka_bot->next = 
+	}
 }

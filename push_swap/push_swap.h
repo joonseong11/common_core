@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/08 20:42:28 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/08 21:48:04 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,14 @@ void		check_noarg(int argc);
 *							COMMAND FUNC								*
 */
 
-void		sa(t_info *info);
-void		sb(t_info *info);
-void		ss(t_info *info);
+int			sa(t_info *info);
+int			sb(t_info *info);
+int			ss(t_info *info);
 void		pb(t_info *info);
 void		pa(t_info *info);
+int			ra(t_info *info);
+int			rb(t_info *info);
+int			rr(t_info *info);
 void		p3_1(t_head *top, t_head *bot, t_node *obj);
 void		p3_2(t_head *top, t_head *bot, t_node *obj);
 
@@ -121,5 +124,8 @@ void		test_sb(t_info *info);
 void		test_ss(t_info *info);
 void		test_pa(t_info *info);
 void		test_pb(t_info *info);
+void		test_ra(t_info *info);
+void		test_rb(t_info *info);
+void		test_rr(t_info *info);
 
 #endif
