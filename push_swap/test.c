@@ -6,40 +6,70 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:33:04 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/07 17:12:06 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/08 20:42:15 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	test_curr_next(t_info *info)
+void	test_curr_next(t_head *top, char c)
 {
 	t_node	*curr;
 	int		print;
 
-	curr = info->stacka_top->next;
-	printf("curr_next\n\n");
+	curr = top->next;
+	printf("\n============\nstack %c TOP\n============\n", c);
 	while (curr)
 	{
 		print = curr->data;
 		printf("%d\n", print);
 		curr = curr->next;
 	}
-	printf("\ncurr_next end\n");
+	printf("======\nBOTTOM\n======\n\n");
 }
 
-void	test_curr_back(t_info *info)
+void	test_start(t_info *info)
 {
-	t_node	*curr;
-	int		print;
+	test_curr_next(info->stacka_top, 'a');
+	test_curr_next(info->stackb_top, 'b');
+}
 
-	curr = info->stacka_bot->next;
-	printf("curr_back\n\n");
-	while (curr)
-	{
-		print = curr->data;
-		printf("%d\n", print);
-		curr = curr->back;
-	}
-	printf("\ncurr_back end\n");
+void	test_sa(t_info *info)
+{
+	printf("----------sa----------\n");
+	sa(info);
+	test_curr_next(info->stacka_top, 'a');
+	test_curr_next(info->stackb_top, 'b');
+}
+
+void	test_sb(t_info *info)
+{
+	printf("----------sb----------\n");
+	sb(info);
+	test_curr_next(info->stacka_top, 'a');
+	test_curr_next(info->stackb_top, 'b');
+}
+
+void	test_ss(t_info *info)
+{
+	printf("----------ss----------\n");
+	ss(info);
+	test_curr_next(info->stacka_top, 'a');
+	test_curr_next(info->stackb_top, 'b');
+}
+
+void	test_pb(t_info *info)
+{
+	printf("----------pb----------\n");
+	pb(info);
+	test_curr_next(info->stacka_top, 'a');
+	test_curr_next(info->stackb_top, 'b');
+}
+
+void	test_pa(t_info *info)
+{
+	printf("----------pa---------\n");
+	pa(info);
+	test_curr_next(info->stacka_top, 'a');
+	test_curr_next(info->stackb_top, 'b');
 }

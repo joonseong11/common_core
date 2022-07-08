@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/07 17:23:43 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/08 20:42:28 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef struct s_node
 {
 	int				data;
 	struct s_node	*next;
-	struct s_node	*back;
 }	t_node;
 
 typedef struct s_head
@@ -66,7 +65,7 @@ typedef struct s_info
 t_node		*ft_nodenew(int data);
 t_head		*ft_headnew(void);
 void		ft_nodedelone(t_node *lst);
-void		ft_nodeadd(t_node **lst, t_node *new);
+void		ft_nodeaddback(t_node **lst, t_node *new);
 t_node		*ft_nodelast(t_node *lst);
 int			ft_nodesize(t_node *lst);
 
@@ -92,6 +91,18 @@ void		check_noint(char *str);
 void		check_noarg(int argc);
 
 /*
+*							COMMAND FUNC								*
+*/
+
+void		sa(t_info *info);
+void		sb(t_info *info);
+void		ss(t_info *info);
+void		pb(t_info *info);
+void		pa(t_info *info);
+void		p3_1(t_head *top, t_head *bot, t_node *obj);
+void		p3_2(t_head *top, t_head *bot, t_node *obj);
+
+/*
 *							MANDATORY FUNC								*
 */
 
@@ -103,7 +114,12 @@ void		init(int argc, char **argv, t_info *info);
  *							TEST FUNC								*
  */
 
-void		test_curr_next(t_info *info);
-void		test_curr_back(t_info *info);
+void		test_start(t_info *info);
+void		test_curr_next(t_head *top, char c);
+void		test_sa(t_info *info);
+void		test_sb(t_info *info);
+void		test_ss(t_info *info);
+void		test_pa(t_info *info);
+void		test_pb(t_info *info);
 
 #endif

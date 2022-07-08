@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_nodenew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 14:03:03 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/05 22:08:38 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/08 20:09:21 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ t_node	*ft_nodenew(int data)
 		return (NULL);
 	head -> data = data;
 	head -> next = NULL;
-	head -> back = NULL;
 	return (head);
 }
