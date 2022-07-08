@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/08 21:48:04 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/08 22:50:49 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void		ft_nodedelone(t_node *lst);
 void		ft_nodeaddback(t_node **lst, t_node *new);
 t_node		*ft_nodelast(t_node *lst);
 int			ft_nodesize(t_node *lst);
+t_node		*ft_nodesearch(t_head *top, int size);
 
 /*
 *							BASIC FUNC								*
@@ -102,6 +103,9 @@ void		pa(t_info *info);
 int			ra(t_info *info);
 int			rb(t_info *info);
 int			rr(t_info *info);
+int			rra(t_info *info);
+int			rrb(t_info *info);
+int			rrr(t_info *info);
 void		p3_1(t_head *top, t_head *bot, t_node *obj);
 void		p3_2(t_head *top, t_head *bot, t_node *obj);
 
@@ -127,5 +131,8 @@ void		test_pb(t_info *info);
 void		test_ra(t_info *info);
 void		test_rb(t_info *info);
 void		test_rr(t_info *info);
+void		test_rra(t_info *info);
+void		test_rrb(t_info *info);
+void		test_rrr(t_info *info);
 
 #endif

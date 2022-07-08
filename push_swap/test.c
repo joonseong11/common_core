@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:33:04 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/08 21:54:19 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/08 22:46:39 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,30 @@ void	test_rr(t_info *info)
 {
 	printf("----------rr---------\n");
 	rr(info);
+	test_curr_next(info->stacka_top, 'a');
+	test_curr_next(info->stackb_top, 'b');
+}
+
+void	test_rra(t_info *info)
+{
+	printf("----------rra---------\n");
+	rra(info);
+	test_curr_next(info->stacka_top, 'a');
+	test_curr_next(info->stackb_top, 'b');
+}
+
+void	test_rrb(t_info *info)
+{
+	printf("----------rrb---------\n");
+	rrb(info);
+	test_curr_next(info->stacka_top, 'a');
+	test_curr_next(info->stackb_top, 'b');
+}
+
+void	test_rrr(t_info *info)
+{
+	printf("----------rrr---------\n");
+	rrr(info);
 	test_curr_next(info->stacka_top, 'a');
 	test_curr_next(info->stackb_top, 'b');
 }

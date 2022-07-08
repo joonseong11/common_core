@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_nodesearch.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 23:00:01 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/08 23:05:28 by jujeon           ###   ########.fr       */
+/*   Created: 2022/07/08 22:36:59 by jujeon            #+#    #+#             */
+/*   Updated: 2022/07/08 23:04:04 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	do_sort(t_info *info)
+t_node	*ft_nodesearch(t_head *top, int size)
 {
-}
+	int		i;
+	t_node	*curr;
 
-int	main(int argc, char **argv)
-{
-	t_info	*info;
-
-	info = malloc(sizeof(t_info));
-	init(argc, argv, info);
-	//do_sort(info);
-	//printcmds();
-	test_start(info);
-	//test_rra(info);
-	test_pb(info);
-	test_pb(info);
-	test_rrb(info);
-	return (0);
+	i = 1;
+	if (top == NULL || size < 0)
+		return (NULL);
+	curr = top->next;
+	while (i < size)
+	{
+		curr = curr->next;
+		++i;
+	}
+	return (curr);
 }
