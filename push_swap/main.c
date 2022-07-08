@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:00:01 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/08 23:05:28 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/09 01:48:29 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	do_sort(t_info *info)
 {
+	
 }
 
 int	main(int argc, char **argv)
@@ -22,12 +23,7 @@ int	main(int argc, char **argv)
 
 	info = malloc(sizeof(t_info));
 	init(argc, argv, info);
-	//do_sort(info);
+	do_sort(info);
 	//printcmds();
-	test_start(info);
-	//test_rra(info);
-	test_pb(info);
-	test_pb(info);
-	test_rrb(info);
 	return (0);
 }

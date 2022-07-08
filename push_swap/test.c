@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:33:04 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/08 22:46:39 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/09 01:47:35 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	test_curr_next(t_head *top, char c)
 	int		print;
 
 	curr = top->next;
-	printf("\n============\nstack %c TOP\n============\n", c);
+	printf("============\nstack %c TOP\n============\n", c);
 	while (curr)
 	{
 		print = curr->data;

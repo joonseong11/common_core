@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_rr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 21:39:33 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/08 22:48:13 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/09 01:44:01 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	rra(t_info *info)
 
 int	rrr(t_info *info)
 {
-	if (rra(info) == 0 && rrb(info) == 0)
-		return (0);
+	rra(info);
+	rrb(info);
 	return (1);
 }

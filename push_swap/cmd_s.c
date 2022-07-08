@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_s.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:08:50 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/08 21:44:51 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/09 01:46:24 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	swap_size_morethan_two(t_head *top, t_head *bot)
 
 int	ss(t_info *info)
 {
-	if (sa(info) == 0 && sb(info) == 0)
-		return (0);
+	sa(info);
+	sb(info);
 	return (1);
 }
 
