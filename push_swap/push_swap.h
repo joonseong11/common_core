@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/07 07:14:00 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/07 17:23:43 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h> 	// you must remove it!!!!!!!!!!!!!!!!!
+# include <stdio.h> // you must remove it!!!!!!!!!!!!!!!!!
 
 /*
 * 							ENUM								*
@@ -46,12 +46,17 @@ typedef struct s_node
 	struct s_node	*back;
 }	t_node;
 
+typedef struct s_head
+{
+	t_node	*next;
+}	t_head;
+
 typedef struct s_info
 {
-	t_node	*stacka_top;
-	t_node	*stacka_bot;
-	t_node	*stackb_top;
-	t_node	*stackb_bot;
+	t_head	*stacka_top;
+	t_head	*stacka_bot;
+	t_head	*stackb_top;
+	t_head	*stackb_bot;
 }	t_info;
 
 /*
@@ -59,8 +64,9 @@ typedef struct s_info
 */
 
 t_node		*ft_nodenew(int data);
+t_head		*ft_headnew(void);
 void		ft_nodedelone(t_node *lst);
-void		ft_nodeadd_back(t_node **lst, t_node *new);
+void		ft_nodeadd(t_node **lst, t_node *new);
 t_node		*ft_nodelast(t_node *lst);
 int			ft_nodesize(t_node *lst);
 
@@ -79,18 +85,25 @@ long long	ft_atolong(const	char	*str);
 *							ERROR FUNC								*
 */
 
-void	get_error(int errcase); // you need to add ft_ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-void	check_overlap(t_node *head, int num);
-void 	check_outofint(int num);
-void	check_noint(char *str);
-void	check_noarg(int argc);
+void		get_error(int errcase); // you need to add ft_ !!!!!!!!!!!!!
+void		check_overlap(t_head *head, int num);
+void		check_outofint(int num);
+void		check_noint(char *str);
+void		check_noarg(int argc);
 
 /*
 *							MANDATORY FUNC								*
 */
 
-void	putintostacka(char **arr, t_info *info);
-void	make_stacks(t_info *info);
-void	init(int argc, char **argv, t_info *info);
+void		putintostacka(char **arr, t_info *info);
+void		make_stacks(t_info *info);
+void		init(int argc, char **argv, t_info *info);
+
+/*
+ *							TEST FUNC								*
+ */
+
+void		test_curr_next(t_info *info);
+void		test_curr_back(t_info *info);
 
 #endif

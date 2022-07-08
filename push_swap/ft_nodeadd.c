@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodelast.c                                      :+:      :+:    :+:   */
+/*   ft_nodeadd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 14:19:56 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/07 17:26:36 by jujeon           ###   ########.fr       */
+/*   Created: 2022/01/12 14:25:42 by jujeon            #+#    #+#             */
+/*   Updated: 2022/07/07 17:00:01 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*ft_nodelast(t_node *lst)
+void	ft_nodeadd(t_node **lst, t_node *new)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
+	t_node	*last;
+
+	if (lst == NULL || new == NULL)
+		get_error(OTHER);
+	if (*lst == NULL)
 	{
-		lst = lst->next;
+		*lst = new;
 	}
-	return (lst);
+	else if ((*lst)->next == NULL)
+	{
+		last = *lst;
+		last->next = new;
+		new->back = NULL;
+	}
+	else
+	{
+		last = ft_nodelast(*lst);
+		last->next = new;
+		new->back = last;
+	}
 }

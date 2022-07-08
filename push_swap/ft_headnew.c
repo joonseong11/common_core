@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nodeadd_back.c                                  :+:      :+:    :+:   */
+/*   ft_headnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 14:25:42 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/07 06:43:20 by jujeon           ###   ########seoul.kr  */
+/*   Created: 2022/07/07 16:46:11 by jujeon            #+#    #+#             */
+/*   Updated: 2022/07/07 16:47:12 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_nodeadd_back(t_node **lst, t_node *new)
+t_head	*ft_headnew(void)
 {
-	t_node	*last;
+	t_head	*head;
 
-	if (lst == NULL || new == NULL)
-		return ;
-	if (*lst == NULL)
-	{
-		*lst = new;
-	}
-	else
-	{
-		last = ft_nodelast(*lst);
-		last->next = new;
-	}
+	head = malloc(sizeof(t_head));
+	if (head == NULL)
+		return (NULL);
+	head->next = NULL;
+	return (head);
 }
