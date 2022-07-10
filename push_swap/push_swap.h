@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/11 00:15:16 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/11 00:45:53 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,8 @@ void		make_stacks(t_info *info);
 void		init(int argc, char **argv, t_info *info);
 void		do_sort(t_info *info);
 void		do_hardsort(t_info *info, int size);
+void		do_hardsort_two(t_info *info, char c);
+void		do_hardsort_three(t_info *info, char c);
 
 /*
  *							TEST FUNC								*
