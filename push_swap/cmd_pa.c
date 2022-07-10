@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_pa.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:22:02 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/08 20:24:31 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/10 20:38:47 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,16 @@ void	pa2_1(t_info *info)
 		p3_2(info->stacka_top, info->stacka_bot, obj);
 }
 
-void	pa(t_info *info)
+int		pa(t_info *info)
 {
 	int	size;
 
 	size = ft_nodesize(info->stackb_top->next);
 	if (size < 1)
-		return ;
+		return (0);
 	else if (size == 1)
 		pa2_1(info);
 	else
 		pa2_2(info);
+	return (1);
 }

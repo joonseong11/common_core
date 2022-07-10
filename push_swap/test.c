@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:33:04 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/09 01:47:35 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/11 00:15:38 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,31 @@ void	test_curr_next(t_head *top, char c)
 
 	curr = top->next;
 	printf("============\nstack %c TOP\n============\n", c);
+	while (curr)
+	{
+		print = curr->data;
+		printf("%d\n", print);
+		curr = curr->next;
+	}
+	printf("======\nBOTTOM\n======\n\n");
+}
+
+void	test_wholecurr_next(t_info *info)
+{
+	t_node	*curr;
+	int		print;
+
+	curr = info->stacka_top->next;
+	printf("============\nstack %c TOP\n============\n", 'a');
+	while (curr)
+	{
+		print = curr->data;
+		printf("%d\n", print);
+		curr = curr->next;
+	}
+	printf("======\nBOTTOM\n======\n");
+	printf("============\nstack %c TOP\n============\n", 'b');
+	curr = info->stackb_top->next;
 	while (curr)
 	{
 		print = curr->data;

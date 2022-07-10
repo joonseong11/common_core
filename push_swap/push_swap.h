@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/08 22:50:49 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/11 00:15:16 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@
 /*
 * 							ENUM								*
 */
-
-enum e_yesorno
-{
-	NO = 0,
-	YES = 1
-};
 
 enum e_errcase
 {
@@ -57,6 +51,13 @@ typedef struct s_info
 	t_head	*stackb_top;
 	t_head	*stackb_bot;
 }	t_info;
+
+typedef struct s_abc
+{
+	int	a;
+	int	b;
+	int	c;
+}	t_abc;
 
 /*
 * 							NODE FUNC								*
@@ -98,8 +99,8 @@ void		check_noarg(int argc);
 int			sa(t_info *info);
 int			sb(t_info *info);
 int			ss(t_info *info);
-void		pb(t_info *info);
-void		pa(t_info *info);
+int			pb(t_info *info);
+int			pa(t_info *info);
 int			ra(t_info *info);
 int			rb(t_info *info);
 int			rr(t_info *info);
@@ -108,6 +109,10 @@ int			rrb(t_info *info);
 int			rrr(t_info *info);
 void		p3_1(t_head *top, t_head *bot, t_node *obj);
 void		p3_2(t_head *top, t_head *bot, t_node *obj);
+void		safe_s(t_info *info, char c);
+void		safe_p(t_info *info, char c);
+void		safe_r(t_info *info, char c);
+void		safe_rr(t_info *info, char c);
 
 /*
 *							MANDATORY FUNC								*
@@ -116,6 +121,8 @@ void		p3_2(t_head *top, t_head *bot, t_node *obj);
 void		putintostacka(char **arr, t_info *info);
 void		make_stacks(t_info *info);
 void		init(int argc, char **argv, t_info *info);
+void		do_sort(t_info *info);
+void		do_hardsort(t_info *info, int size);
 
 /*
  *							TEST FUNC								*
@@ -123,6 +130,7 @@ void		init(int argc, char **argv, t_info *info);
 
 void		test_start(t_info *info);
 void		test_curr_next(t_head *top, char c);
+void		test_wholecurr_next(t_info *info);
 void		test_sa(t_info *info);
 void		test_sb(t_info *info);
 void		test_ss(t_info *info);
