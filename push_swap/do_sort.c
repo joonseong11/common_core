@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 20:45:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/11 00:23:24 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/11 00:35:35 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,28 @@
 
 void	do_hardsort_three2(t_info *info, char c, t_abc abc)
 {
-	if (abc.a > abc.b && abc.a < abc.c && abc.b < abc.c)
-		safe_s(info, 'a');
+	if (abc.a > abc.b && abc.a > abc.c)
+	{
+		if (abc.b < abc.c)
+		{
+			safe_s(info, c);
+			safe_r(info, c);
+			safe_s(info, c);
+			safe_rr(info, c);
+		}
+		else
+		{
+			safe_s(info, c);
+			safe_r(info, c);
+			safe_s(info, c);
+			safe_rr(info, c);
+			safe_s(info, c);
+		}
+	}
+	else if (abc.a > abc.b && abc.a < abc.c && abc.b < abc.c)
+		safe_s(info, c);
 	else
-		safe_rr(info, 'a');
+		safe_rr(info, c);
 }
 
 void	do_hardsort_three(t_info *info, char c)
@@ -33,19 +51,10 @@ void	do_hardsort_three(t_info *info, char c)
 	{
 		if (abc.b > abc.c)
 		{
-			safe_s(info, 'a');
-			safe_r(info, 'a');
+			safe_r(info, c);
+			safe_s(info, c);
+			safe_rr(info, c);
 		}			
-	}
-	else if (abc.a > abc.b && abc.a > abc.c)
-	{
-		if (abc.b < abc.c)
-			safe_r(info, 'a');
-		else
-		{
-			safe_s(info, 'a');
-			safe_rr(info, 'a');
-		}
 	}
 	else
 		do_hardsort_three2(info, c, abc);
