@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_hardsort.c                                      :+:      :+:    :+:   */
+/*   do_hardsort_case1.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 00:40:55 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/12 12:21:27 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/12 22:29:33 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	do_hardsort_three3(t_info *info, char c, t_abc abc)
+void	do_hardsort_three3(t_info *info, char c)
 {
 	safe_r(info, c);
 	safe_s(info, c);
@@ -43,7 +43,7 @@ void	do_hardsort_three2(t_info *info, char c, t_abc abc)
 	else if (abc.a > abc.b && abc.a < abc.c && abc.b < abc.c)
 		safe_s(info, c);
 	else
-		do_hardsort_three3(info, c, abc);
+		do_hardsort_three3(info, c);
 }
 
 void	do_hardsort_three(t_info *info, char c)

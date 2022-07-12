@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/12 12:23:35 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/12 17:57:54 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ enum e_errcase
 typedef struct s_node
 {
 	int				data;
+	int				index;
 	struct s_node	*next;
 }	t_node;
 
@@ -50,6 +51,7 @@ typedef struct s_info
 	t_head	*stacka_bot;
 	t_head	*stackb_top;
 	t_head	*stackb_bot;
+	int		checkdeadcase;
 }	t_info;
 
 typedef struct s_abc
@@ -125,14 +127,21 @@ void		do_sort(t_info *info);
 void		do_hardsort(t_info *info, int size);
 void		do_hardsort_two(t_info *info, char c);
 void		do_hardsort_three(t_info *info, char c);
+void		do_hardsort_four(t_info *info);
+void		do_hardsort_five(t_info *info);
+void		do_mainsort(t_info *info);
+int			checkdeadcase(t_info *info);
+void		sort_makesandclock(t_info *info, int i, int chunk);
+void		sort_usesandclock(t_info *info, int size);
 
-/*
- *							TEST FUNC								*
- */
+	/*
+	 *							TEST FUNC								*
+	 */
 
 void		test_start(t_info *info);
 void		test_curr_next(t_head *top, char c);
 void		test_wholecurr_next(t_info *info);
+void		test_indexcurr_next(t_info *info);
 void		test_sa(t_info *info);
 void		test_sb(t_info *info);
 void		test_ss(t_info *info);

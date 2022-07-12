@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:33:04 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/11 00:15:38 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/12 16:05:12 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	test_curr_next(t_head *top, char c)
 	printf("======\nBOTTOM\n======\n\n");
 }
 
-void	test_wholecurr_next(t_info *info)
+void test_wholecurr_next(t_info *info)
 {
-	t_node	*curr;
-	int		print;
+	t_node *curr;
+	int print;
 
 	curr = info->stacka_top->next;
 	printf("============\nstack %c TOP\n============\n", 'a');
@@ -47,6 +47,31 @@ void	test_wholecurr_next(t_info *info)
 	while (curr)
 	{
 		print = curr->data;
+		printf("%d\n", print);
+		curr = curr->next;
+	}
+	printf("======\nBOTTOM\n======\n\n");
+}
+
+void	test_indexcurr_next(t_info *info)
+{
+	t_node	*curr;
+	int		print;
+
+	curr = info->stacka_top->next;
+	printf("============\nstack %c TOP\n============\n", 'a');
+	while (curr)
+	{
+		print = curr->index;
+		printf("%d\n", print);
+		curr = curr->next;
+	}
+	printf("======\nBOTTOM\n======\n");
+	printf("============\nstack %c TOP\n============\n", 'b');
+	curr = info->stackb_top->next;
+	while (curr)
+	{
+		print = curr->index;
 		printf("%d\n", print);
 		curr = curr->next;
 	}

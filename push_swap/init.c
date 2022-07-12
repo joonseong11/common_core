@@ -3,14 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 02:19:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/09 18:03:59 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/12 22:16:28 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	indexing(t_info *info)
+{	
+	int		i;
+	int		j;
+	int		size;
+	t_node	*obj;
+
+	i = 1;
+	size = ft_nodesize(info->stacka_top->next);
+	while (i <= size)
+	{
+		j = 1;
+		obj = ft_nodesearch(info->stacka_top, i);
+		while (j <= size)
+		{
+			if (obj->data > ft_nodesearch(info->stacka_top, j)->data)
+				(obj->index)++;
+			++j;
+		}
+		++i;
+	}
+}
 
 void	putintostacka(char **arr, t_info *info)
 {
@@ -25,7 +48,7 @@ void	putintostacka(char **arr, t_info *info)
 		check_outofint(num);
 		check_overlap(info->stacka_top, num);
 		ft_nodeaddback(&(info->stacka_top->next), ft_nodenew(num));
-		printf("size : %d, num : %lld\n", ft_nodesize(info->stacka_top->next), num); // here too !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		// printf("size : %d, num : %lld\n", ft_nodesize(info->stacka_top->next), num); // here too !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		++i;
 	}
 	info->stacka_bot->next = ft_nodelast(info->stacka_top->next);
@@ -58,4 +81,5 @@ void	init(int argc, char **argv, t_info *info)
 		putintostacka(arr, info);
 		++i;
 	}
+	indexing(info);
 }
