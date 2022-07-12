@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/11 00:45:53 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/12 12:23:35 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int			rra(t_info *info);
 int			rrb(t_info *info);
 int			rrr(t_info *info);
 void		p3_1(t_head *top, t_head *bot, t_node *obj);
-void		p3_2(t_head *top, t_head *bot, t_node *obj);
+void		p3_2(t_head *top, t_node *obj);
 void		safe_s(t_info *info, char c);
 void		safe_p(t_info *info, char c);
 void		safe_r(t_info *info, char c);

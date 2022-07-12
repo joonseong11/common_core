@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 06:40:24 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/11 11:39:16 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/12 12:25:23 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	pb2_2(t_info *info)
 	if (size_a == 0)
 		p3_1(info->stackb_top, info->stackb_bot, obj);
 	else if (size_a > 0)
-		p3_2(info->stackb_top, info->stackb_bot, obj);
+		p3_2(info->stackb_top, obj);
 }
 
 void	pb2_1(t_info *info)
@@ -38,7 +38,7 @@ void	pb2_1(t_info *info)
 	if (size == 0)
 		p3_1(info->stackb_top, info->stackb_bot, obj);
 	else if (size > 0)
-		p3_2(info->stackb_top, info->stackb_bot, obj);
+		p3_2(info->stackb_top, obj);
 }
 
 int	pb(t_info *info)

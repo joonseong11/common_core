@@ -6,45 +6,64 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 20:45:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/11 21:58:02 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/12 12:38:50 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	do_hardsort_four(t_info *info, char c)
+void	do_hardsort_four(t_info *info)
 {
 	int		i;
 	int		j;
 	t_node	*node;
+	t_node	*obj;
 
 	i = 0;
-	safe_r(info, 'a');
+	safe_p(info, 'b');
 	do_hardsort_three(info, 'a');
-	safe_rr(info, 'a');
+	obj = info->stackb_top->next;
 	while (i < 3)
 	{
-	
+		node = info->stacka_top->next;
+		if (node -> data < obj->data)
+			safe_r(info, 'a');
+		else
+			break ;
+		++i;
+	}
+	safe_p(info, 'a');
+	while (i)
+	{
+		safe_rr(info, 'a');
+		--i;
 	}
 }
 
-void	do_hardsort_five(t_info *info, char c)
+void	do_hardsort_five(t_info *info)
 {
 	int		i;
+	int		j;
 	t_node	*node;
+	t_node	*obj;
 
-	i = 4;
-	safe_r(info, 'a');
-	do_hardsort_four(info, 'a');
-	safe_rr(info, 'a');
-	node = info->stacka_top->next;
+	i = 0;
+	safe_p(info, 'b');
+	do_hardsort_four(info);
+	obj = info->stackb_top->next;
+	while (i < 4)
+	{
+		node = info->stacka_top->next;
+		if (node->data < obj->data)
+			safe_r(info, 'a');
+		else
+			break ;
+		++i;
+	}
+	safe_p(info, 'a');
 	while (i)
 	{
-		printf("hard five i = %d\n", i);
-		if (node->data > node->next->data)
-			safe_s(info, 'a');
-		if (node->next != NULL)
-			node = node->next;
+		safe_rr(info, 'a');
 		--i;
 	}
 }
@@ -56,9 +75,9 @@ void	do_hardsort(t_info *info, int size)
 	else if (size == 3)
 		do_hardsort_three(info, 'a');
 	else if (size == 4)
-		do_hardsort_four(info, 'a');
+		do_hardsort_four(info);
 	else
-		do_hardsort_five(info, 'a');
+		do_hardsort_five(info);
 }
 
 void	do_sort(t_info *info)
