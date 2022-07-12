@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_pb.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 06:40:24 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/10 20:37:57 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/11 11:39:16 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	pb2_1(t_info *info)
 		p3_2(info->stackb_top, info->stackb_bot, obj);
 }
 
-int		pb(t_info *info)
+int	pb(t_info *info)
 {
 	int	size;
 

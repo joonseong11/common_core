@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   do_hardsort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 00:40:55 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/11 00:45:39 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/11 11:38:10 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	do_hardsort_three3(t_info *info, char c, t_abc abc)
 {

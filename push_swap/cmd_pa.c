@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_pa.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:22:02 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/10 20:38:47 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/11 11:39:22 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	pa2_1(t_info *info)
 		p3_2(info->stacka_top, info->stacka_bot, obj);
 }
 
-int		pa(t_info *info)
+int	pa(t_info *info)
 {
 	int	size;
 

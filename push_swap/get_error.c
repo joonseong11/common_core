@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 02:20:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/07 17:17:35 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/11 11:38:23 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	check_overlap(t_head *head, int num)
 void	check_outofint(int num)
 {
 	if (num < -2147483648 || num > 2147483647)
-			get_error(OUTOFINT);
+		get_error(OUTOFINT);
 }
 
 void	check_noint(char *str)
