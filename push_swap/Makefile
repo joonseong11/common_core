@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+         #
+#    By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 22:13:40 by jujeon            #+#    #+#              #
-#    Updated: 2022/07/13 23:07:46 by jujeon           ###   ########.fr        #
+#    Updated: 2022/07/14 01:19:07 by jujeon           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = push_swap
 BONUS_NAME = checker
-SRCS = mandatory/main.c \
-		mandatory/init.c \
+SRCS = mandatory/main.c
+SHARED_SRCS = mandatory/init.c \
 		basic_func/ft_atolong.c \
 		basic_func/ft_calloc.c \
 		basic_func/ft_split.c \
@@ -44,29 +44,30 @@ SRCS = mandatory/main.c \
 		sort_func/do_sort.c \
 		sort_func/do_mainsort.c \
 		sort_func/do_hardsort_case1.c \
-		sort_func/do_hardsort_case2.c \
+		sort_func/do_hardsort_case2.c
 BONUS_SRCS = checker_src/checker_making.c
 OBJS = $(SRCS:%.c=%.o)
+SHARED_OBJS = $(SHARED_SRCS:%.c=%.o)
 BONUS_OBJS = $(BONUS_SRCS:%.c=%.o)
 INCLUDES = -I.
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(INCLUDES) -o $@
+$(NAME): $(OBJS) $(SHARED_OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(SHARED_OBJS) $(INCLUDES) -o $@
 	
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
 bonus : $(BONUS_NAME)
 
-$(BONUS_NAME): $(BONUS_OBJS)
-	$(CC) $(CFLAGS) $(INCLUDES) -o $@ (BONUS_OBJS)
+$(BONUS_NAME): $(BONUS_OBJS) $(SHARED_OBJS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(SHARED_OBJS) $(INCLUDES) -o $@ 
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS) $(SHARED_OBJS) $(BONUS_OBJS)
 
-fclean:
+fclean: clean
 	rm -f $(NAME) $(BONUS_NAME)
 
 re: fclean all

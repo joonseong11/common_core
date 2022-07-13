@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 02:20:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/13 21:57:00 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/14 00:53:26 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	get_error(int errcase)
 	else if (errcase == NOINT || errcase == OUTOFINT || \
 		errcase == OVERLAP || errcase == WRONGARG || \
 		errcase == NOSORTED)
-		write(3, "Error\n", 6);
+		write(2, "Error\n", 6);
 	else
-		write(3, "Developer's error\n", 18);
+		write(2, "Developer's error\n", 18);
 	exit(EXIT_FAILURE);
 }
 
@@ -46,9 +46,6 @@ void	check_outofint(long long num)
 
 void	check_noint(char *str)
 {
-	int	i;
-
-	i = 0;
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
