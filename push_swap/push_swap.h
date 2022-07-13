@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/13 21:35:43 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/13 21:56:47 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ enum e_errcase
 	NOINT,
 	OUTOFINT,
 	OVERLAP,
+	WRONGARG,
+	NOSORTED,
 	OTHER
 };
 
@@ -82,12 +84,14 @@ void		*ft_calloc(size_t count, size_t size);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strdup(const char *s1);
 char		**ft_split(char const *s, char c);
+long long	ft_atolong(const char *str);
+char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 /*
 *							ERROR FUNC								*
 */
 
-void		get_error(int errcase); // you need to add ft_ !!!!!!!!!!!!!
+void		get_error(int errcase);
 void		check_overlap(t_head *head, int num);
 void		check_outofint(long long num);
 void		check_noint(char *str);

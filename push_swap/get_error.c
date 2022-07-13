@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 02:20:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/13 20:51:48 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/13 21:57:00 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	get_error(int errcase)
 	if (errcase == NOARG)
 		;
 	else if (errcase == NOINT || errcase == OUTOFINT || \
-		errcase == OVERLAP)
+		errcase == OVERLAP || errcase == WRONGARG || \
+		errcase == NOSORTED)
 		write(3, "Error\n", 6);
 	else
 		write(3, "Developer's error\n", 18);
