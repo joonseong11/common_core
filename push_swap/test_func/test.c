@@ -6,11 +6,12 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:33:04 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/12 16:05:12 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/13 22:51:16 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
+#include <stdio.h>
 
 void	test_curr_next(t_head *top, char c)
 {

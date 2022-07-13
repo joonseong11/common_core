@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/13 21:56:47 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/13 22:51:28 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h> // you must remove it!!!!!!!!!!!!!!!!!
 
 /*
 * 							ENUM								*
