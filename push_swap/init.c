@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 02:19:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/12 22:16:28 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/13 20:46:45 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	putintostacka(char **arr, t_info *info)
 		check_outofint(num);
 		check_overlap(info->stacka_top, num);
 		ft_nodeaddback(&(info->stacka_top->next), ft_nodenew(num));
-		// printf("size : %d, num : %lld\n", ft_nodesize(info->stacka_top->next), num); // here too !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		++i;
 	}
 	info->stacka_bot->next = ft_nodelast(info->stacka_top->next);

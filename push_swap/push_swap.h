@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/12 17:57:54 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/13 21:35:43 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void		*ft_calloc(size_t count, size_t size);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strdup(const char *s1);
 char		**ft_split(char const *s, char c);
-long long	ft_atolong(const	char	*str);
 
 /*
 *							ERROR FUNC								*
@@ -90,7 +89,7 @@ long long	ft_atolong(const	char	*str);
 
 void		get_error(int errcase); // you need to add ft_ !!!!!!!!!!!!!
 void		check_overlap(t_head *head, int num);
-void		check_outofint(int num);
+void		check_outofint(long long num);
 void		check_noint(char *str);
 void		check_noarg(int argc);
 
@@ -131,7 +130,8 @@ void		do_hardsort_four(t_info *info);
 void		do_hardsort_five(t_info *info);
 void		do_mainsort(t_info *info);
 int			checkdeadcase(t_info *info);
-void		sort_makesandclock(t_info *info, int i, int chunk);
+int			issorted(t_info *info);
+void		sort_makesandclock(t_info *info, int i, int chunk, int size);
 void		sort_usesandclock(t_info *info, int size);
 
 	/*

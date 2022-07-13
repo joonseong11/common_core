@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:41:08 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/12 16:06:16 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/13 20:33:02 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,40 @@
 
 void	do_hardsort_four(t_info *info)
 {
-	int		i;
 	t_node	*node;
-	t_node	*obj;
+	int		i;
 
 	i = 0;
-	safe_p(info, 'b');
-	do_hardsort_three(info, 'a');
-	obj = info->stackb_top->next;
-	while (i < 3)
+	while (ft_nodesize(info->stackb_top->next) < 1)
 	{
 		node = info->stacka_top->next;
-		if (node->data < obj->data)
-			safe_r(info, 'a');
+		if (node->index < 1)
+			safe_p(info, 'b');
 		else
-			break ;
-		++i;
+			safe_r(info, 'a');
 	}
+	do_hardsort_three(info, 'a');
 	safe_p(info, 'a');
-	while (i)
-	{
-		safe_rr(info, 'a');
-		--i;
-	}
+	safe_p(info, 'a');
 }
 
 void	do_hardsort_five(t_info *info)
 {
-	int		i;
 	t_node	*node;
-	t_node	*obj;
+	int		i;
 
 	i = 0;
-	safe_p(info, 'b');
-	do_hardsort_four(info);
-	obj = info->stackb_top->next;
-	while (i < 4)
+	while (ft_nodesize(info->stackb_top->next) < 2)
 	{
 		node = info->stacka_top->next;
-		if (node->data < obj->data)
-			safe_r(info, 'a');
+		if (node->index < 2)
+			safe_p(info, 'b');
 		else
-			break ;
-		++i;
+			safe_r(info, 'a');
 	}
+	do_hardsort_three(info, 'a');
 	safe_p(info, 'a');
-	while (i)
-	{
-		safe_rr(info, 'a');
-		--i;
-	}
+	safe_p(info, 'a');
+	if (info->stacka_top->next->index > info->stacka_top->next->next->index)
+		safe_s(info, 'a');
 }

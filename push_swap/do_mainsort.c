@@ -6,11 +6,30 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:33:03 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/12 21:43:40 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/13 16:46:14 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	checkdeadcase(t_info *info)
+{
+	int		i;
+	t_node	*node;
+
+	i = 0;
+	node = info->stacka_top->next;
+	while (node)
+	{
+		if (info->stacka_top->next->data > node->data)
+			++i;
+		node = node->next;
+	}
+	if (i > 50)
+		return (1);
+	else
+		return (0);
+}
 
 int	sort_where_are_you(t_info *info, int index)
 {
@@ -57,26 +76,7 @@ void	sort_usesandclock(t_info *info, int size)
 	}
 }
 
-int	checkdeadcase(t_info *info)
-{
-	int		i;
-	t_node	*node;
-
-	i = 0;
-	node = info->stacka_top->next;
-	while (node)
-	{
-		if (info->stacka_top->next->data < node->data)
-			++i;
-		node = node->next;
-	}
-	if (i > 30)
-		return (1);
-	else
-		return (0);
-}
-
-void	sort_makesandclock(t_info *info, int i, int chunk)
+void	sort_makesandclock(t_info *info, int i, int chunk, int size)
 {
 	info->checkdeadcase = checkdeadcase(info);
 	while (ft_nodesize(info->stacka_top->next))
@@ -93,13 +93,12 @@ void	sort_makesandclock(t_info *info, int i, int chunk)
 			safe_r(info, 'b');
 			++i;
 		}
-		else
+		else if (info->stacka_top->next->index > (i + chunk))
 		{
-			if (info->checkdeadcase == 1)
+			if (info->checkdeadcase == 1 && i < size / 3)
 				safe_rr(info, 'a');
 			else
 				safe_r(info, 'a');
-			++i;
 		}
 	}
 }
@@ -113,6 +112,6 @@ void	do_mainsort(t_info *info)
 	i = 0;
 	size = ft_nodesize(info->stacka_top->next);
 	chunk = 0.000000053 * (size * size) + 0.03 * size + 14.5;
-	sort_makesandclock(info, i, chunk);
+	sort_makesandclock(info, i, chunk, size);
 	sort_usesandclock(info, size);
 }

@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 02:20:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/11 11:38:23 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/13 20:51:48 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	get_error(int errcase)
 		;
 	else if (errcase == NOINT || errcase == OUTOFINT || \
 		errcase == OVERLAP)
-		printf("Error\n");//		you need to add ft_
+		write(3, "Error\n", 6);
 	else
-		printf("Developer's error\n");//you need to add ft_ !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		write(3, "Developer's error\n", 18);
 	exit(EXIT_FAILURE);
 }
 
@@ -37,7 +37,7 @@ void	check_overlap(t_head *head, int num)
 	}
 }
 
-void	check_outofint(int num)
+void	check_outofint(long long num)
 {
 	if (num < -2147483648 || num > 2147483647)
 		get_error(OUTOFINT);
