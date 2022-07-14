@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   do_hardsort_case2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:41:08 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/14 00:52:32 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/14 15:33:40 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	do_hardsort_four(t_info *info)
 {
 	t_node	*node;
+
 	while (ft_nodesize(info->stackb_top->next) < 1)
 	{
 		node = info->stacka_top->next;
@@ -31,6 +32,7 @@ void	do_hardsort_four(t_info *info)
 void	do_hardsort_five(t_info *info)
 {
 	t_node	*node;
+
 	while (ft_nodesize(info->stackb_top->next) < 2)
 	{
 		node = info->stacka_top->next;

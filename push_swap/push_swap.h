@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/14 11:12:29 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/14 19:07:45 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ void		sort_usesandclock(t_info *info, int size);
 */
 
 void		get_stdin(t_info *info, char *line);
+void		get_stdin2(t_info *info, char *line);
 void		check_ok(t_info *info);
 
 /*
