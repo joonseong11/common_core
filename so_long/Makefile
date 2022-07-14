@@ -6,10 +6,10 @@
 #    By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 17:40:44 by jujeon            #+#    #+#              #
-#    Updated: 2022/07/14 17:40:59 by jujeon           ###   ########.fr        #
+#    Updated: 2022/07/14 21:55:19 by jujeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
-	gcc -L./mlx -lmlx -framework OpenGL -framework AppKit main.c
+	gcc -L. -lmlx -framework OpenGL -framework AppKit main.c
 	./a.out

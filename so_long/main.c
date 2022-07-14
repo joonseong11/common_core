@@ -6,11 +6,11 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:41:50 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/14 17:46:52 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/14 21:54:34 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./mlx/mlx.h"
+#include "mlx/mlx.h"
 
 int	main(void)
 {
