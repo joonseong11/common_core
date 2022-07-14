@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 20:45:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/14 01:38:11 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/14 09:09:31 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,21 @@ void	get_stdin(t_info *info, char *line)
 	line = get_next_line(STDIN_FILENO);
 	while (line != NULL)
 	{
-		if (ft_strlen(line) != 3 && ft_strnstr(line, "sa", 2))
+		if (ft_strlen(line) == 3 && ft_strnstr(line, "sa", 2))
 			sa(info);
-		else if (ft_strlen(line) != 3 && ft_strnstr(line, "sb", 2))
+		else if (ft_strlen(line) == 3 && ft_strnstr(line, "sb", 2))
 			sb(info);
-		else if (ft_strlen(line) != 3 && ft_strnstr(line, "pa", 2))
+		else if (ft_strlen(line) == 3 && ft_strnstr(line, "pa", 2))
 			pa(info);
-		else if (ft_strlen(line) != 3 && ft_strnstr(line, "pb", 2))
+		else if (ft_strlen(line) == 3 && ft_strnstr(line, "pb", 2))
 			pb(info);
-		else if (ft_strlen(line) != 3 && ft_strnstr(line, "ra", 2))
+		else if (ft_strlen(line) == 3 && ft_strnstr(line, "ra", 2))
 			ra(info);
-		else if (ft_strlen(line) != 3 && ft_strnstr(line, "rb", 2))
+		else if (ft_strlen(line) == 3 && ft_strnstr(line, "rb", 2))
 			rb(info);
-		else if (ft_strlen(line) != 4 && ft_strnstr(line, "rra", 2))
+		else if (ft_strlen(line) == 4 && ft_strnstr(line, "rra", 3))
 			rra(info);
-		else if (ft_strlen(line) != 4 && ft_strnstr(line, "rrb", 2))
+		else if (ft_strlen(line) == 4 && ft_strnstr(line, "rrb", 3))
 			rrb(info);
 		else
 			get_error(WRONGARG);
