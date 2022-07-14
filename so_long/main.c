@@ -5,31 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 15:05:15 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/13 21:11:04 by jujeon           ###   ########.fr       */
+/*   Created: 2022/07/14 17:41:50 by jujeon            #+#    #+#             */
+/*   Updated: 2022/07/14 17:46:52 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
+#include "./mlx/mlx.h"
+
 int	main(void)
 {
-	int		fd1;
-	char	*line;
+	void	*mlx_ptr;
+	void	*win_ptr;
 
-	if (!(fd1 = open("./test1.txt", O_RDONLY)))
-	{
-		printf("\nError in open\n");
-		return (0);
-	}
-	printf("%d \n", fd1);
-	while (NULL != (line = get_next_line(fd1)))
-	{
-		printf("main line : %s \n", line);
-		///free(line);
-	}
-	close(fd1);
-	system("leaks a.out > leaks_result_temp; cat leaks_result_temp | grep leaked && rm -rf leaks_result_temp");
-	return (0);
+	mlx_ptr = mlx_init();
+	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "mlx 42");
+	mlx_loop(mlx_ptr);
 }
