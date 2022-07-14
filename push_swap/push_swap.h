@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/14 01:02:52 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/14 11:12:29 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ void		do_hardsort_three(t_info *info, char c);
 void		do_hardsort_four(t_info *info);
 void		do_hardsort_five(t_info *info);
 void		do_mainsort(t_info *info);
-int			checkdeadcase(t_info *info);
+int			checkdeadcase(t_info *info, int size);
 int			issorted(t_info *info);
 void		sort_makesandclock(t_info *info, int i, int chunk, int size);
 void		sort_usesandclock(t_info *info, int size);

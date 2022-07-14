@@ -6,13 +6,13 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:33:03 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/14 09:48:30 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/14 11:16:15 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	checkdeadcase(t_info *info)
+int	checkdeadcase(t_info *info, int size)
 {
 	int		i;
 	t_node	*node;
@@ -25,7 +25,7 @@ int	checkdeadcase(t_info *info)
 			++i;
 		node = node->next;
 	}
-	if (i > 50)
+	if (i > size * 0.6)
 		return (1);
 	else
 		return (0);
@@ -78,7 +78,7 @@ void	sort_usesandclock(t_info *info, int size)
 
 void	sort_makesandclock(t_info *info, int i, int chunk, int size)
 {
-	info->checkdeadcase = checkdeadcase(info);
+	info->checkdeadcase = checkdeadcase(info, size);
 	while (ft_nodesize(info->stacka_top->next))
 	{
 		if (info->stacka_top->next->index <= i)
