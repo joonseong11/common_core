@@ -6,11 +6,11 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 13:57:42 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/13 22:11:42 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/15 15:43:34 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../get_next_line.h"
+#include "get_next_line.h"
 
 size_t	g_strlen(const char *str)
 {
