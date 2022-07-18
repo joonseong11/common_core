@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free_db_array.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 23:00:01 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/18 15:09:15 by jujeon           ###   ########.fr       */
+/*   Created: 2022/07/16 16:55:57 by jujeon            #+#    #+#             */
+/*   Updated: 2022/07/16 18:59:04 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 
-int	main(int argc, char **argv)
+void	ft_free_db_array(char **arr)
 {
-	t_info	*info;
+	int	i;
+	int	j;
 
-	info = malloc(sizeof(t_info));
-	init(argc, argv, info);
-	do_sort(info);
-	return (0);
+	i = 0;
+	j = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		arr[i] = NULL;
+		++i;
+	}
+	free(arr);
+	return ;
 }

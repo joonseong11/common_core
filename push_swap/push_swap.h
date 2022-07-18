@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/14 19:07:45 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/18 15:10:01 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ typedef struct s_abc
 t_node		*ft_nodenew(int data);
 t_head		*ft_headnew(void);
 void		ft_nodedelone(t_node *lst);
-void		ft_nodeaddback(t_node **lst, t_node *new);
+void		ft_nodeaddback(t_node **node, t_node *new);
 t_node		*ft_nodelast(t_node *lst);
 int			ft_nodesize(t_node *lst);
 t_node		*ft_nodesearch(t_head *top, int size);
@@ -85,6 +85,7 @@ char		*ft_strdup(const char *s1);
 char		**ft_split(char const *s, char c);
 long long	ft_atolong(const char *str);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
+void		ft_free_db_array(char **arr);
 
 /*
 *							ERROR FUNC								*

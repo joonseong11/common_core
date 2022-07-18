@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 02:19:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/13 20:46:45 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/16 17:10:22 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	init(int argc, char **argv, t_info *info)
 		if (arr == NULL)
 			get_error(OTHER);
 		putintostacka(arr, info);
+		ft_free_db_array(arr);
 		++i;
 	}
 	indexing(info);

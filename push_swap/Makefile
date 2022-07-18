@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 22:13:40 by jujeon            #+#    #+#              #
-#    Updated: 2022/07/14 11:43:36 by jujeon           ###   ########seoul.kr   #
+#    Updated: 2022/07/16 17:03:15 by jujeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SHARED_SRCS = mandatory/init.c \
 		basic_func/ft_strlen.c \
 		basic_func/ft_strnstr.c \
 		basic_func/ft_substr.c \
+		basic_func/ft_free_db_array.c \
 		basic_func/get_next_line.c \
 		basic_func/get_next_line_utils.c \
 		node_func/ft_headnew.c \

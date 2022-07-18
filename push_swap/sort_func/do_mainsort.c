@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   do_mainsort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:33:03 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/14 11:16:15 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/15 14:21:20 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	checkdeadcase(t_info *info, int size)
 			++i;
 		node = node->next;
 	}
-	if (i > size * 0.6)
+	if (i > size * 0.9)
 		return (1);
 	else
 		return (0);
