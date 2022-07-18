@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atolong.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 15:15:43 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/04 09:43:37 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/18 22:20:35 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ long long	ft_atolong(const	char	*str)
 		if ('0' <= *str && *str <= '9')
 			ret = ret * 10 + *str - '0';
 		else
+		{
+			if (*str < '0' || *str > '9')
+				get_error(NOINT);
 			break ;
+		}
 		str++;
 	}
 	return (ret * minus);
