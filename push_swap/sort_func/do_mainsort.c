@@ -6,30 +6,11 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:33:03 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/20 01:10:30 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/20 01:20:25 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// int	checkdeadcase(t_info *info, int size)
-// {
-// 	int		i;
-// 	t_node	*node;
-
-// 	i = 0;
-// 	node = info->stacka_top->next;
-// 	while (node)
-// 	{
-// 		if (info->stacka_top->next->data > node->data)
-// 			++i;
-// 		node = node->next;
-// 	}
-// 	if (i > size * 0.9)
-// 		return (1);
-// 	else
-// 		return (0);
-// }
 
 int	checkdeadcase(t_info *info, int i, int chunk)
 {
@@ -95,7 +76,6 @@ void	sort_usesandclock(t_info *info, int size)
 
 void	sort_makesandclock(t_info *info, int i, int chunk)
 {
-	// info->checkdeadcase = checkdeadcase(info, size);
 	while (ft_nodesize(info->stacka_top->next))
 	{
 		if (info->stacka_top->next->index <= i)
@@ -112,7 +92,6 @@ void	sort_makesandclock(t_info *info, int i, int chunk)
 		}
 		else if (info->stacka_top->next->index > (i + chunk))
 		{
-			// if (info->checkdeadcase == 1 && i < size / 3)
 			if (checkdeadcase(info, i, chunk) == 1)
 				safe_rr(info, 'a');
 			else
