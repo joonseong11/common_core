@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 02:20:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/14 00:53:26 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/07/20 00:51:40 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,23 @@ void	check_outofint(long long num)
 
 void	check_noint(char *str)
 {
+	char	*temp;
+
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
 		str++;
-	if (*str < '0' || *str > '9')
-		get_error(NOINT);
+	temp = (char *)str;
+	while (temp[0] == '0' && temp[0] != '\0')
+		temp++;
+	if (ft_strlen(temp) > 10)
+		get_error(WRONGARG);
+	while (*str)
+	{
+		if (*str < '0' || *str > '9')
+			get_error(NOINT);
+		str++;
+	}
 }
 
 void	check_noarg(int argc)

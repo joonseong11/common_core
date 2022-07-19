@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 23:34:31 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/18 15:10:01 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/20 01:11:08 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,9 +133,9 @@ void		do_hardsort_three(t_info *info, char c);
 void		do_hardsort_four(t_info *info);
 void		do_hardsort_five(t_info *info);
 void		do_mainsort(t_info *info);
-int			checkdeadcase(t_info *info, int size);
+int			checkdeadcase(t_info *info, int i, int chunk);
 int			issorted(t_info *info);
-void		sort_makesandclock(t_info *info, int i, int chunk, int size);
+void		sort_makesandclock(t_info *info, int i, int chunk);
 void		sort_usesandclock(t_info *info, int size);
 
 /*

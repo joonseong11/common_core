@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 02:19:06 by jujeon            #+#    #+#             */
-/*   Updated: 2022/07/16 17:10:22 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/20 00:47:09 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	putintostacka(char **arr, t_info *info)
 	long long	num;
 
 	i = 0;
+	if (arr[0] == NULL)
+		get_error(WRONGARG);
 	while (arr[i])
 	{
 		check_noint(arr[i]);
