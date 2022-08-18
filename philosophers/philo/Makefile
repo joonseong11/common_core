@@ -5,7 +5,7 @@ NAME = philo
 CFLAGS = -Wall -Werror -Wextra
 # CFLAGS = -Wall -Werror -Wextra -fsanitize=thread
 
-SRCS = philo.c ft_atoi.c
+SRCS = philo.c init.c monitor.c parse.c philo_utils.c thread.c
 
 OBJS = $(SRCS:.c=.o)
 
