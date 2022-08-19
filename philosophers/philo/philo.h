@@ -6,51 +6,40 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 20:33:52 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/18 21:58:31 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/08/19 16:54:53 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
-
 /*
- *		memset
+ *			memset									*
  */
-
 # include <string.h>
-
 /*
- *		printf
+ *			printf									*
  */
-
 # include <stdio.h>
-
 /*
- *		malloc, free
+ *			malloc, free							*
  */
-
 # include <stdlib.h>
-
 /*
- *		write, usleep
+ *			write, usleep							*
  */
-
 # include <unistd.h>
-
 /*
- *		gettimeofday
+ *			gettimeofday							*
  */
-
 # include <sys/time.h>
-
 /*
- *		pthread's external functions
+ *			pthread's external functions			*
  */
-
 # include <pthread.h>
-
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
+
+//						structres
 
 typedef struct s_status
 {
@@ -98,6 +87,8 @@ enum e_enum
 	SUCCESS
 };
 
+//						functions
+
 /*
  *			parse functions
  */
@@ -127,6 +118,5 @@ int			take_fork(t_philo *philo);
 void		philo_print(t_philo *philo, t_info *info, int idx, char *str);
 void		smart_timer(size_t time);
 size_t		get_time(void);
-void		mutex_free(t_philo *philo);
-
+void		mutexde_free(t_philo *philo);
 #endif

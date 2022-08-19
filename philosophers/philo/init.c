@@ -6,15 +6,15 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 20:42:17 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/18 20:42:39 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/08/19 17:03:31 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int init_philo(t_philo **philo, t_info *info, t_arg *arg, pthread_mutex_t *fork)
+int	init_philo(t_philo **philo, t_info *info, t_arg *arg, pthread_mutex_t *fork)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	(*philo) = malloc(sizeof(t_philo) * arg->n_philo);
@@ -28,7 +28,6 @@ int init_philo(t_philo **philo, t_info *info, t_arg *arg, pthread_mutex_t *fork)
 		(*philo)[i].left = &fork[i];
 		(*philo)[i].right = &fork[(i + 1) % arg->n_philo];
 		(*philo)[i].last_eat_t = get_time();
-		// philo[i].life_time = 0;
 		++i;
 	}
 	i = -1;
@@ -41,12 +40,12 @@ int init_philo(t_philo **philo, t_info *info, t_arg *arg, pthread_mutex_t *fork)
 	return (SUCCESS);
 }
 
-int init_mutex(t_info *info, pthread_mutex_t **fork)
+int	init_mutex(t_info *info, pthread_mutex_t **fork)
 {
-	int i;
+	int	i;
 
 	*fork = malloc(sizeof(pthread_mutex_t) * info->arg.n_philo);
-	if (!(*fork))
+	if ((*fork) == NULL)
 		return (ERROR);
 	i = 0;
 	while (i < info->arg.n_philo)
@@ -57,9 +56,9 @@ int init_mutex(t_info *info, pthread_mutex_t **fork)
 	return (SUCCESS);
 }
 
-int init_info(t_philo **philo, t_info *info)
+int	init_info(t_philo **philo, t_info *info)
 {
-	pthread_mutex_t *fork;
+	pthread_mutex_t	*fork;
 
 	info->stat.end = 0;
 	info->stat.n_full = 0;

@@ -6,11 +6,44 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 20:44:29 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/18 20:44:53 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/08/19 16:05:45 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int sleep_thinking(t_philo *philo, t_arg *arg)
+{
+	int kill_;
+
+	pthread_mutex_lock(&philo->info->mutex.print);
+	kill_ = philo->info->stat.end;
+	pthread_mutex_unlock(&philo->info->mutex.print);
+
+	pthread_mutex_unlock(philo->right);
+	pthread_mutex_unlock(philo->left);
+	if (kill_)
+		return (ERROR);
+	philo_print(philo, philo->info, philo->idx, "is sleeping");
+	smart_timer(arg->sleep_time);
+	philo_print(philo, philo->info, philo->idx, "is thinking");
+	// usleep(10);
+	return (SUCCESS);
+}
+
+int eating(t_philo *philo, t_arg *arg)
+{
+	int kill_;
+
+	pthread_mutex_lock(&philo->info->mutex.print);
+	kill_ = philo->info->stat.end;
+	pthread_mutex_unlock(&philo->info->mutex.print);
+	if (kill_)
+		return (ERROR);
+	philo_print(philo, philo->info, philo->idx, "is eating");
+	smart_timer(arg->eat_time);
+	return (SUCCESS);
+}
 
 int take_fork(t_philo *philo)
 {
@@ -35,39 +68,6 @@ int take_fork(t_philo *philo)
 		pthread_mutex_lock(philo->left);
 		philo_print(philo, philo->info, philo->idx, "has taken a fork");
 	}
-	return (SUCCESS);
-}
-
-int eating(t_philo *philo, t_arg *arg)
-{
-	int kill_;
-
-	pthread_mutex_lock(&philo->info->mutex.print);
-	kill_ = philo->info->stat.end;
-	pthread_mutex_unlock(&philo->info->mutex.print);
-	if (kill_)
-		return (ERROR);
-	philo_print(philo, philo->info, philo->idx, "is eating");
-	smart_timer(arg->eat_time);
-	return (SUCCESS);
-}
-
-int sleep_thinking(t_philo *philo, t_arg *arg)
-{
-	int kill_;
-
-	pthread_mutex_lock(&philo->info->mutex.print);
-	kill_ = philo->info->stat.end;
-	pthread_mutex_unlock(&philo->info->mutex.print);
-
-	pthread_mutex_unlock(philo->right);
-	pthread_mutex_unlock(philo->left);
-	if (kill_)
-		return (ERROR);
-	philo_print(philo, philo->info, philo->idx, "is sleeping");
-	smart_timer(arg->sleep_time);
-	philo_print(philo, philo->info, philo->idx, "is thinking");
-	// usleep(10);
 	return (SUCCESS);
 }
 
