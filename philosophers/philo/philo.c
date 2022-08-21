@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 20:51:51 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/19 15:58:08 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/08/22 00:23:00 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	if (parse_arg(argc, argv, &info) == ERROR)
 		return (ERROR);
 	if (init_info(&philo, &info) == SUCCESS)
-		monitor(philo);
+		monitor(philo, &info);
 	i = -1;
 	while (++i < philo->info->arg.n_philo)
 		pthread_mutex_unlock(philo[i].left);

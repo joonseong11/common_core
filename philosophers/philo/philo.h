@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 20:33:52 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/19 16:54:53 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/08/22 00:23:21 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,13 @@ typedef struct s_status
 
 typedef struct s_mutex
 {
-	pthread_mutex_t		*fork;
 	pthread_mutex_t		print;
 }	t_mutex;
 
 typedef struct s_arg
 {
 	int		n_philo;
-	size_t	die_time;
+	int		die_time;
 	int		eat_time;
 	int		sleep_time;
 	int		must_eat;
@@ -97,7 +96,7 @@ long long	ft_atoi(const char *str);
 /*
  *			monitor function
  */
-void		monitor(t_philo *philo);
+void		monitor(t_philo *philo, t_info *info);
 /*
  *			initializer functions
  */
@@ -112,10 +111,11 @@ void		*action(void *param);
 int			sleep_thinking(t_philo *philo, t_arg *arg);
 int			eating(t_philo *philo, t_arg *arg);
 int			take_fork(t_philo *philo);
+void		philo_print(t_philo *philo, t_info *info, int idx, char *str);
 /*
  *			util functions
  */
-void		philo_print(t_philo *philo, t_info *info, int idx, char *str);
+char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 void		smart_timer(size_t time);
 size_t		get_time(void);
 void		mutexde_free(t_philo *philo);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 20:42:17 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/19 17:03:31 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/08/19 23:58:08 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	init_philo(t_philo **philo, t_info *info, t_arg *arg, pthread_mutex_t *fork)
 {
 	int	i;
 
-	i = 0;
+	i = -1;
 	(*philo) = malloc(sizeof(t_philo) * arg->n_philo);
 	if (*philo == NULL)
 		return (ERROR);
-	while (i < arg->n_philo)
+	while (++i < arg->n_philo)
 	{
 		(*philo)[i].idx = i;
 		(*philo)[i].cnt_eat = 0;
@@ -28,7 +28,6 @@ int	init_philo(t_philo **philo, t_info *info, t_arg *arg, pthread_mutex_t *fork)
 		(*philo)[i].left = &fork[i];
 		(*philo)[i].right = &fork[(i + 1) % arg->n_philo];
 		(*philo)[i].last_eat_t = get_time();
-		++i;
 	}
 	i = -1;
 	pthread_mutex_lock(&info->mutex.print);

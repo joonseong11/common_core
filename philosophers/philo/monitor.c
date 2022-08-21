@@ -3,49 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 20:41:00 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/18 20:41:17 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/08/22 00:22:51 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void monitor(t_philo *philo)
+void	monitor(t_philo *philo, t_info *info)
 {
-	int i;
-	int kill_;
+	int	i;
+	int	kill_flag;
 
-	kill_ = 0;
+	kill_flag = 0;
 	while (1)
 	{
-		i = 0;
-		while (i < philo->info->arg.n_philo)
+		i = -1;
+		while (++i < philo->info->arg.n_philo)
 		{
 			pthread_mutex_lock(&philo->info->mutex.print);
-			kill_ = philo->info->stat.end;
-			if (get_time() - philo[i].last_eat_t > philo->info->arg.die_time)
+			kill_flag = philo->info->stat.end;
+			if (get_time() > philo[i].last_eat_t + (size_t)info->arg.die_time)
 			{
 				philo->info->stat.end++;
-				printf("%ld %d died\n", get_time() - philo->info->birth_t, i + 1);
+				printf("%ld %d died\n", get_time() - info->birth_t, i + 1);
 				pthread_mutex_unlock(&philo->info->mutex.print);
-				return;
+				return ;
 			}
 			else
 				pthread_mutex_unlock(&philo->info->mutex.print);
-			if (kill_)
-				return;
-			// pthread_mutex_lock(&philo->info->mutex.print);
-			// if (philo->info->stat.n_full >= philo->info->arg.must_eat)
-			// {
-			// 	philo->info->stat.end++;
-			// 	pthread_mutex_unlock(&philo->info->mutex.print);
-			// 	return ;
-			// }
-			// else
-			// 	pthread_mutex_unlock(&philo->info->mutex.print);
-			++i;
+			if (kill_flag)
+				return ;
 		}
 	}
 }
