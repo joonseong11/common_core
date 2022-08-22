@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 20:33:52 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/22 00:23:21 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/08/22 13:20:47 by jujeon           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ enum e_enum
  *			parse functions
  */
 int			parse_arg(int argc, char **argv, t_info *info);
-long long	ft_atoi(const char *str);
 /*
  *			monitor function
  */
