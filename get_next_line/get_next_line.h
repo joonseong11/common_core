@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:02:04 by jujeon            #+#    #+#             */
-/*   Updated: 2022/05/21 22:14:28 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/07/18 14:13:37 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GET_NEXT_LINE_H
 # include <unistd.h>
 # include <stdlib.h>
+# define BUFFER_SIZE 42
 
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *s1);

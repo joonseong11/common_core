@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jujeon <jujeon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 00:39:42 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/22 13:21:44 by jujeon           ###   ########seoul.kr  */
+/*   Updated: 2022/08/25 15:29:41 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,31 +95,29 @@ enum e_enum
 /*
  *			parse functions
  */
-int			parse_arg(int argc, char **argv, t_info *info);
-/*
- *			monitor function
- */
-void		monitor(t_philo *philo, t_info *info);
-/*
- *			initializer functions
- */
-int			init_info(t_philo **philo, t_info *info);
-int			init_mutex(t_info *info, pthread_mutex_t **fork);
-int			init_philo(t_philo **philo, t_info *info, t_arg *arg, \
-				pthread_mutex_t *fork);
-/*
- *			thread functions
-*/
-void		*action(void *param);
-int			sleep_thinking(t_philo *philo, t_arg *arg);
-int			eating(t_philo *philo, t_arg *arg);
-int			take_fork(t_philo *philo);
-void		philo_print(t_philo *philo, t_info *info, int idx, char *str);
-/*
- *			util functions
- */
-char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
-void		smart_timer(size_t time);
-size_t		get_time(void);
-void		mutexde_free(t_philo *philo);
+// int			parse_arg(int argc, char **argv, t_info *info);
+// /*
+//  *			monitor function
+//  */
+// /*
+//  *			initializer functions
+//  */
+// int			init(t_philo *philo, int argc, char **argv, pid_t *pid);
+// int			init_philo(t_philo *philo, t_info *info, t_arg *arg);
+// void		*eat_checker(void *param);
+
+// /*
+// *			semaphore functions
+// */
+// void		action(t_philo *philo);
+// void		*monitor(void *param);
+// int			take_fork(t_philo *philo);
+// int			eating(t_philo *philo);
+// int			sleep_thinking(t_philo *philo);
+// /*
+//  *			util functions
+//  */
+// void		smart_timer(size_t time);
+// size_t		get_time(void);
+// void		philo_print(t_philo *philo, t_info *info, int idx, char *str);
 #endif

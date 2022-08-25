@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 01:21:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/25 15:59:17 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/08/25 15:28:00 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,12 +221,30 @@ int parse_arg(int argc, char **argv, t_info *info)
 
 int main(int argc, char **argv)
 {
-	t_philo	philo;
+	int idx;
+	pid_t *pid;
+	t_philo philo;
+	pthread_t tid_eatchecker;
 
+	memset(&philo, 0, sizeof(t_philo));
 	if (parse_arg(argc, argv, &philo.info) == ERROR)
 		return (ERROR);
-	if (init_philo() == ERROR)
+	pid = malloc(sizeof(pid_t) * philo.info.arg.n_philo);
+	if (init_philo(&philo, &philo.info, &philo.info.arg) == ERROR)
 		return (ERROR);
+	idx = 0;
+
+	philo.info.birth_t = get_time();
+	while (idx < philo.info.arg.n_philo)
+	{
+		pid[idx] = fork();
+		if (pid[idx] == 0)
+			action(philo);
+		philo.idx = ++idx;
+	}
+	philo.info.pid = pid;
+	// sem_post(philo.info.sema.print);
+
 	if (argc == 6)
 	{
 		pthread_create(&tid_eatchecker, NULL, eat_checker, &philo);
