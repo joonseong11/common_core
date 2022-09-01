@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 01:21:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/30 21:18:16 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/09/01 21:11:28 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	init_philo(t_philo *philo, t_info *info, t_arg *arg)
 
 //			O_EXCL          error if create and semaphore exists
 
-int	init(int argc, char **argv, t_philo *philo, pid_t *pid)
+int	init(int argc, char **argv, t_philo *philo)
 {
 	int	idx;
 
@@ -106,20 +106,57 @@ int	init(int argc, char **argv, t_philo *philo, pid_t *pid)
 	if (parse_arg(argc, argv, &philo->info) == ERROR)
 		return (ERROR);
 	init_philo(philo, &philo->info, &philo->info.arg);
+	philo->info.pid = malloc(sizeof(pid_t) * philo->info.arg.n_philo);
+	if (philo->info.pid == NULL)
+		return (ERROR);
 	idx = 0;
 	philo->info.birth_t = get_time();
 	while (idx < philo->info.arg.n_philo)
 	{
-		pid[idx] = fork();
+		philo->info.pid[idx] = fork();
+		if (philo->info.pid[idx] == 0)
+			action(philo);
+		philo->idx = ++idx;
 	}
 	return (SUCCESS);
 }
 
+void	checkerthread(int argc, char **argv, t_philo *philo)
+{
+	pthread_t	tid_eatchecker;
+
+	if (argc == 6)
+	{
+		pthread_create(&tid_eatchecker, NULL, tid_eatchecker, &philo);
+		pthread_detach(tid_eatchecker);
+	}
+}
+
+void	endprocess(int argc, char **argv, t_philo *philo)
+{
+	int	idx;
+
+	idx = -1;
+	waitpid(-1, 0, 0);
+	while (++idx < philo->info.arg.n_philo)
+	{
+		kill(philo->info.pid[idx], SIGKILL);
+	}
+	sem_close(philo->info.sema.fork);
+	sem_close(philo->info.sema.print);
+	sem_unlink("sem_fork");
+	sem_unlink("sem_print");
+	while (idx--)
+		waitpid(-1, 0, 0);
+}
+
 int	main(int argc, char **argv)
 {
-	t_philo	philo;
+	t_philo		philo;
 
 	if (init(argc, argv, &philo))
 		return (ERROR);
+	checkerthread(argc, argv, &philo);
+	endprocess(argc, argv, &philo);
 	return (0);
 }
