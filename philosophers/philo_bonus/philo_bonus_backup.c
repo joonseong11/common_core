@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_bonus.c                                      :+:      :+:    :+:   */
+/*   philo_bonus_backup.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 01:21:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/25 15:28:00 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/09/02 22:25:24 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,13 @@ void philo_print(t_philo *philo, t_info *info, int idx, char *str)
 	sem_post(philo->info.sema.print);
 }
 
-int take_fork(t_philo *philo)
+int sleep_thinking(t_philo *philo)
 {
-	sem_wait(philo->info.sema.fork);
-	philo_print(philo, &philo->info, philo->idx, "has taken a fork");
-	sem_wait(philo->info.sema.fork);
-	philo_print(philo, &philo->info, philo->idx, "has taken a fork");
+	sem_post(philo->info.sema.fork);
+	sem_post(philo->info.sema.fork);
+	philo_print(philo, &philo->info, philo->idx, "is sleeping");
+	smart_timer(philo->info.arg.sleep_time);
+	philo_print(philo, &philo->info, philo->idx, "is thinking");
 	return (SUCCESS);
 }
 
@@ -88,13 +89,12 @@ int eating(t_philo *philo)
 	return (SUCCESS);
 }
 
-int sleep_thinking(t_philo *philo)
+int take_fork(t_philo *philo)
 {
-	sem_post(philo->info.sema.fork);
-	sem_post(philo->info.sema.fork);
-	philo_print(philo, &philo->info, philo->idx, "is sleeping");
-	smart_timer(philo->info.arg.sleep_time);
-	philo_print(philo, &philo->info, philo->idx, "is thinking");
+	sem_wait(philo->info.sema.fork);
+	philo_print(philo, &philo->info, philo->idx, "has taken a fork");
+	sem_wait(philo->info.sema.fork);
+	philo_print(philo, &philo->info, philo->idx, "has taken a fork");
 	return (SUCCESS);
 }
 

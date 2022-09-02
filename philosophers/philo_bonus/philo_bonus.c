@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 01:21:49 by jujeon            #+#    #+#             */
-/*   Updated: 2022/09/01 21:11:28 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/09/02 22:38:41 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,32 @@ int	init_philo(t_philo *philo, t_info *info, t_arg *arg)
 
 //			O_EXCL          error if create and semaphore exists
 
+void	philo_print(t_philo *philo, t_info info)
+{
+	sem_wait(philo->info.sema.print);
+	printf("%ld %d %s\n", get_time() - );
+	sem_post(philo->info.sema.print);
+}
+
+int	take_fork(t_philo *philo)
+{
+	philo_print(philo, philo->info);
+	smart_timer();
+	return (SUCCESS);
+}
+
+void	action(t_philo *philo)
+{
+	pthread_t	tid;
+
+	tid = NULL;
+	philo->last_eat_t = get_time();
+	pthread_create(&tid, NULL, monitor, philo);
+	while(!take_fork() && !eating() && !sleep_thinking())
+		;
+	exit(1);
+}
+
 int	init(int argc, char **argv, t_philo *philo)
 {
 	int	idx;
@@ -121,7 +147,7 @@ int	init(int argc, char **argv, t_philo *philo)
 	return (SUCCESS);
 }
 
-void	checkerthread(int argc, char **argv, t_philo *philo)
+void	checker_thread(int argc, char **argv, t_philo *philo)
 {
 	pthread_t	tid_eatchecker;
 
@@ -132,7 +158,7 @@ void	checkerthread(int argc, char **argv, t_philo *philo)
 	}
 }
 
-void	endprocess(int argc, char **argv, t_philo *philo)
+void	end_process(int argc, char **argv, t_philo *philo)
 {
 	int	idx;
 
@@ -156,7 +182,7 @@ int	main(int argc, char **argv)
 
 	if (init(argc, argv, &philo))
 		return (ERROR);
-	checkerthread(argc, argv, &philo);
-	endprocess(argc, argv, &philo);
+	checker_thread(argc, argv, &philo);
+	end_process(argc, argv, &philo);
 	return (0);
 }
