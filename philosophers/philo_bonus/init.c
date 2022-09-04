@@ -43,10 +43,10 @@ int	parse_arg(int argc, char **argv, t_info *info)
 {
 	if (!(argc == 5 || argc == 6))
 		return (ERROR);
-	info->arg.n_philo = atoi(argv[1]);
-	info->arg.die_time = atoi(argv[2]);
-	info->arg.eat_time = atoi(argv[3]);
-	info->arg.sleep_time = atoi(argv[4]);
+	info->arg.n_philo = p_atoi(argv[1]);
+	info->arg.die_time = p_atoi(argv[2]);
+	info->arg.eat_time = p_atoi(argv[3]);
+	info->arg.sleep_time = p_atoi(argv[4]);
 	if (argc == 6)
 	{
 		info->arg.must_eat = p_atoi(argv[5]);
