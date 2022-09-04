@@ -5,7 +5,10 @@ NAME = philo_bonus
 CFLAGS = -Wall -Werror -Wextra
 # CFLAGS = -Wall -Werror -Wextra -g -fsanitize=thread
 
-SRCS = philo_bonus.c #philo_bonus_utils.c sema.c
+SRCS = philo_bonus.c \
+		init.c \
+		philo_bonus_utils.c \
+		process.c
 
 OBJS = $(SRCS:.c=.o)
 

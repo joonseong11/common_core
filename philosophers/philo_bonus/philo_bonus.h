@@ -6,7 +6,7 @@
 /*   By: jujeon <jujeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 00:39:42 by jujeon            #+#    #+#             */
-/*   Updated: 2022/08/25 15:29:41 by jujeon           ###   ########.fr       */
+/*   Updated: 2022/09/03 19:45:03 by jujeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,32 +92,27 @@ enum e_enum
 };
 
 //						functions
-/*
- *			parse functions
- */
-// int			parse_arg(int argc, char **argv, t_info *info);
-// /*
-//  *			monitor function
-//  */
-// /*
-//  *			initializer functions
-//  */
-// int			init(t_philo *philo, int argc, char **argv, pid_t *pid);
-// int			init_philo(t_philo *philo, t_info *info, t_arg *arg);
-// void		*eat_checker(void *param);
 
-// /*
-// *			semaphore functions
-// */
-// void		action(t_philo *philo);
-// void		*monitor(void *param);
-// int			take_fork(t_philo *philo);
-// int			eating(t_philo *philo);
-// int			sleep_thinking(t_philo *philo);
-// /*
-//  *			util functions
-//  */
-// void		smart_timer(size_t time);
-// size_t		get_time(void);
-// void		philo_print(t_philo *philo, t_info *info, int idx, char *str);
+/*
+ *			initializer part
+ */
+int			init(int argc, char **argv, t_philo *philo);
+int			parse_arg(int argc, char **argv, t_info *info);
+int			init_philo(t_philo *philo, t_info *info, t_arg *arg);
+/*
+ *			process part
+ */
+void		action(t_philo *philo);
+void		*monitor(void *param);
+int			take_fork(t_philo *philo);
+int			eating(t_philo *philo);
+int			sleep_thinking(t_philo *philo);
+/*
+*			util functions
+*/
+long long	p_atoi(const char *str);
+char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
+void		philo_print(t_philo *philo, t_info *info, int idx, char *str);
+void		smart_timer(size_t time);
+size_t		get_time(void);
 #endif
